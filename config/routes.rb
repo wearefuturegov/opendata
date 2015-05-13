@@ -8,4 +8,8 @@ Rails.application.routes.draw do
   
   root 'areas#index'
 
+  get 'styleguide' => 'pages#styleguide'
+
+end
+
 end
