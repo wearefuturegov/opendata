@@ -11,5 +11,3 @@ Rails.application.routes.draw do
   get 'styleguide' => 'pages#styleguide'
 
 end
-
-end
