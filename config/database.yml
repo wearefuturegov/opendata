@@ -11,11 +11,11 @@ defaults: &defaults
 
 development:
   <<: *defaults
-  database: wearefuturegov_dev
+  database: opendata_dev
 
 test: &test
   <<: *defaults
-  database: wearefuturegov_test
+  database: opendata_test
 
 cucumber:
   <<: *test
