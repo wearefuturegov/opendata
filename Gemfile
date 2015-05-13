@@ -21,6 +21,8 @@ group :development do
   gem 'binding_of_caller'
   gem 'html2haml'
   gem 'breezeblocks'
+  gem 'guard'
+  gem 'guard-livereload'
 end
 
 group :test do
