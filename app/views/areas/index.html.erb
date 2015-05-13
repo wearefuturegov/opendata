@@ -2,6 +2,6 @@
 
 <ul>
   <% @areas.each do |area| %>
-  <li><%= area.name %></li>
+  <li><%= link_to area.name, area_path(area) %></li>
   <% end %>
 </ul>
