@@ -20,6 +20,7 @@ gem 'cancancan'
 group :development do
   gem 'better_errors'
   gem 'binding_of_caller'
+  gem 'bitters'
   gem 'breezeblocks'
   gem 'guard'
   gem 'guard-livereload'
