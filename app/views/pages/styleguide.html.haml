@@ -33,3 +33,38 @@
       Use the '.mono' class to render text in a monospace font, use this for data.
     %p
       %small Small text: Etiam porta sem malesuada magna mollis euismod.
+
+  %h2 Stat Cards
+
+  %section.card
+    %header
+      %h4 Title
+    .card-trend.positive
+      %h3
+        Trend
+      %small More Spending
+    .card-stat
+      %h5 Council spending
+      %span.stat-value
+        £50m
+    .card-stat
+      %h5 NHS spending
+      %span.stat-value
+        £10m
+
+  %section.card
+    %header
+      %h4 Title
+    .card-trend.negative
+      %h3
+        Trend
+      %small Less spending
+    .card-stat
+      %h5 Council Spending
+      %span.stat-value-na
+        Not Provided
+    .card-stat
+      %h5 NHS Spending
+      %span.stat-value
+        £18m
+

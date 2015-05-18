@@ -1,0 +1,60 @@
+.card
+  border-bottom: $base-border
+  margin-bottom: $base-spacing
+
+  +media($medium-screen-up)
+    +span-columns(4 of 12)
+  +media($large-screen-up)
+    +span-columns(3 of 12)
+
+  header,
+    height: 70px
+    padding: 0 $base-spacing
+
+  header
+    background-color: $light-gray
+    border-top-left-radius: $base-border-radius
+    border-top-right-radius: $base-border-radius
+    line-height: 80px
+
+    h4
+      display: inline-block
+      line-height: normal
+      vertical-align: middle
+
+.card-trend,
+.card-stat
+  height: 70px
+  padding: 10px $base-spacing 0
+
+.card-trend
+  color: $white
+
+  h3
+    line-height: normal
+    margin-bottom: 0
+
+  &.positive
+    background-color: $positive
+  &.negative
+    background-color: $negative
+
+.card-stat
+  border-bottom: $light-border
+  background-color: $white
+  white-space: nowrap
+
+  &:last-of-type
+    border-bottom: 0
+
+  h5
+    line-height: normal
+    margin-bottom: 0
+
+.stat-value,
+.stat-value-na
+  @extend h2
+  font-size: 1.6em
+
+.stat-value-na
+  color: $medium-dark-gray
