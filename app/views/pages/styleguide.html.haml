@@ -1,38 +1,54 @@
+%header.site-header
+  %nav
+    nav
+
 %main
   %h1 Styleguide
 
-  .row#styleguide-headings
-    .half
-      %h1 Heading 1: This is the main title
-      %h2 Heading 2: This is a subtitle
-      %h3 Heading 3: This is a section title
-      %h4 Heading 4: This is a section subtitle
-      %h5 Heading 5: This is a minor title
-    .half.dark
-      %h1.white Heading 1: This is the main title
-      %h2.white Heading 2: This is a subtitle
-      %h3.white Heading 3: This is a section title
-      %h4.white Heading 4: This is a section subtitle
-      %h5.white Heading 5: This is a minor title
+  %h2 Typography
 
-  .row
-    %p.half
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-      %strong Cras mattis consectetur 
-      purus sit amet fermentum. Cras mattis consectetur purus sit amet fermentum. Donec sed odio dui. Maecenas sed diam eget risus varius blandit sit amet non magna. Maecenas sed diam eget risus varius blandit sit amet non magna.
-    %p.half
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-      %em Cras mattis consectetur 
-      purus sit amet fermentum. Cras mattis consectetur purus sit amet fermentum. Donec sed odio dui. Maecenas sed diam eget risus varius blandit sit amet non magna. Maecenas sed diam eget risus varius blandit sit amet non magna.
+  %section
 
-  %p
-    %a= link_to('Hyperlink', '#')
+    .row#styleguide-headings
+      .half
+        %h1 Heading 1: This is the main title
+        %h2 Heading 2: This is a subtitle
+        %h3 Heading 3: This is a section title
+        %h4 Heading 4: This is a section subtitle
+        %h5 Heading 5: This is a minor title
+      .half.dark
+        %h1.white Heading 1: This is the main title
+        %h2.white Heading 2: This is a subtitle
+        %h3.white Heading 3: This is a section title
+        %h4.white Heading 4: This is a section subtitle
+        %h5.white Heading 5: This is a minor title
 
-  .row
-    %p.mono.half
-      Use the '.mono' class to render text in a monospace font, use this for data.
+    .row
+      %p.half
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+        %strong Cras mattis consectetur 
+        purus sit amet fermentum. Cras mattis consectetur purus sit amet fermentum. Donec sed odio dui. Maecenas sed diam eget risus varius blandit sit amet non magna. Maecenas sed diam eget risus varius blandit sit amet non magna.
+      %p.half
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+        %em Cras mattis consectetur 
+        purus sit amet fermentum. Cras mattis consectetur purus sit amet fermentum. Donec sed odio dui. Maecenas sed diam eget risus varius blandit sit amet non magna. Maecenas sed diam eget risus varius blandit sit amet non magna.
+
     %p
-      %small Small text: Etiam porta sem malesuada magna mollis euismod.
+      %a= link_to('Hyperlink', '#')
+
+    .row
+      %p.mono.half
+        Use the '.mono' class to render text in a monospace font, use this for data.
+      %p
+        %small Small text: Etiam porta sem malesuada magna mollis euismod.
+
+  %h2 Containers
+
+  .row
+    %section.half
+      I'm a section!
+    %aside.half
+      I'm a aside!
 
   %h2 Stat Cards
 
@@ -67,4 +83,7 @@
       %h5 NHS Spending
       %span.stat-value
         £18m
+
+%footer.site-footer
+  Footer
 
