@@ -1,4 +1,15 @@
 .site-footer
+  +outer-container
+  max-width: 100%
   background-color: $white
   border-bottom: $big-border
   margin-top: $large-spacing
+
+.footer-section
+  +media($medium-screen-up)
+    +span-columns(4 of 12)
+    border-right: 3px solid $medium-gray
+    padding: $base-spacing
+
+    &:last-of-type
+      border: 0
