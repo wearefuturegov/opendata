@@ -1,0 +1,16 @@
+main
+  +outer-container
+
+.row
+  +row
+  margin-bottom: $base-spacing
+
+.half
+  +media($medium-screen-up)
+    +span-columns(6 of 12)
+
+.dark
+  background-color: $dark-gray
+
+.clear
+  +clearfix
