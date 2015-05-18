@@ -52,37 +52,85 @@
 
   %h2 Stat Cards
 
-  %section.card
-    %header
-      %h4 Title
-    .card-trend.positive
-      %h3
-        Trend
-      %small More Spending
-    .card-stat
-      %h5 Council spending
-      %span.stat-value
-        £50m
-    .card-stat
-      %h5 NHS spending
-      %span.stat-value
-        £10m
+  .row
 
-  %section.card
-    %header
-      %h4 Title
-    .card-trend.negative
-      %h3
-        Trend
-      %small Less spending
-    .card-stat
-      %h5 Council Spending
-      %span.stat-value-na
-        Not Provided
-    .card-stat
-      %h5 NHS Spending
-      %span.stat-value
-        £18m
+    %section.card
+      %header
+        %h4 Title
+      .card-trend.positive
+        %h3
+          Trend
+        %small More Spending
+      .card-stat
+        %h5 Council spending
+        %span.stat-value
+          £50m
+      .card-stat
+        %h5 NHS spending
+        %span.stat-value
+          £10m
+
+    %section.card
+      %header
+        %h4 Title
+      .card-trend.negative
+        %h3
+          Trend
+        %small Less spending
+      .card-stat
+        %h5 Council Spending
+        %span.stat-value-na
+          Not Provided
+      .card-stat
+        %h5 NHS Spending
+        %span.stat-value
+          £18m
+
+  %h2 Super Tabs
+
+  %section.chart-wrapper
+
+    %nav.super-tab-wrapper
+      .super-tab.unselected#tab-one
+        %header
+          %h3 18-64 Year Olds
+        %article
+          %p
+            %strong 544,567
+          .super-tab-trend
+            %span.stat-value
+              +1%
+            %p Increase in 5 years
+          %p 
+            %strong 600,000 predicted for 2020
+      .super-tab.selected#tab-two
+        %header
+          %h3 65+ Year Olds
+        %article
+          %p
+            %strong 544,567
+          .super-tab-trend
+            %span.stat-value
+              +1%
+            %p Increase in 5 years
+          %p 
+            %strong 600,000 predicted for 2020
+      .super-tab.unselected#tab-three
+        %header
+          %h3 Carers
+        %article
+          %p
+            %strong 544,567
+          .super-tab-trend
+            %span.stat-value
+              +1%
+            %p Increase in 5 years
+          %p 
+            %strong 600,000 predicted for 2020
+
+    %section#chart-container
+      There should be a graph in here.
+
 
 %footer.site-footer
   Footer

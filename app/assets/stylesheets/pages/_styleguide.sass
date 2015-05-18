@@ -3,3 +3,16 @@
     padding: $small-spacing 0
   .dark
     +pad($small-spacing)
+
+#chart-container
+  height: 100%
+  +media($medium-screen-up)
+    +span-columns(8 of 12)
+  +media($large-screen-up)
+    +span-columns(9 of 12)
+
+.chart-wrapper
+  padding: 0
+  border: 0
+  height: 900px
+  background-color: transparent

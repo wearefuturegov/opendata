@@ -1,0 +1,97 @@
+.super-tab-wrapper
+  height: 100%
+
+  +media($medium-screen-up)
+    +span-columns(4 of 12)
+    margin-right: 3px
+  +media($large-screen-up)
+    +span-columns(3 of 12)
+    margin-right: 3px
+
+.super-tab
+  height: calc(33.33% - 3px)
+  background-color: $white
+  margin-bottom: 3px
+  +box-sizing(border-box)
+
+  &:first-of-type
+    border-top-left-radius: $base-border-radius
+
+  &:last-of-type
+    margin-bottom: 0
+    height: 33.33%
+    border-bottom: $base-border
+
+  &.unselected
+    border-top: $big-border
+    +media($medium-screen-up)
+      border-top: 0
+      border-left: $big-border
+    +transition(all .1s ease-in-out)
+
+    &:hover
+      cursor: pointer
+      border-top-width: 7px
+      border-top-style: solid
+      +media($medium-screen-up)
+        border-top: 0
+        border-left-width: 7px
+        border-left-style: solid
+
+    &#tab-one:hover
+      border-top-color: $eighteen-sixty
+    &#tab-two:hover
+      border-top-color: $sixtyfive-plus
+    &#tab-three:hover
+      border-top-color: $carers
+
+    +media($medium-screen-up)
+      &#tab-one:hover
+        border-left-color: $eighteen-sixty
+      &#tab-two:hover
+        border-left-color: $sixtyfive-plus
+      &#tab-three:hover
+        border-left-color: $carers
+
+  &.selected
+    border-top-width: 7px
+    border-top-style: solid
+    +media($medium-screen-up)
+      border-top: 0
+      border-left-width: 7px
+      border-left-style: solid
+
+    &#tab-one
+      border-top-color: $eighteen-sixty
+    &#tab-two
+      border-top-color: $sixtyfive-plus
+    &#tab-three
+      border-top-color: $carers
+
+    +media($medium-screen-up)
+      &#tab-one
+        border-left-color: $eighteen-sixty
+      &#tab-two
+        border-left-color: $sixtyfive-plus
+      &#tab-three
+        border-left-color: $carers
+
+  header
+    height: 80px
+    background-color: $light-gray
+    padding-left: $base-spacing
+    line-height: 80px
+    vertical-align: middle
+
+    h3
+      line-height: normal
+      display: inline-block
+
+  article
+    padding: $base-spacing
+
+.super-tab-trend
+  float: right
+  +media($medium-screen-up)
+    float: none
+
