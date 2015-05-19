@@ -48,6 +48,19 @@
     %aside.half
       I'm a aside!
 
+  %h2 Icons
+
+  .row
+    %section.half
+      %i.icon.circle.circle-positive &#58776;
+
+      %i.icon.circle.circle-negative &#58777;
+
+    %section.half#styleguide-icon-demo
+      %i.icon.circle.circle-positive.circle-hollow &#58776;
+
+      %i.icon.circle.circle-negative.circle-hollow &#58777;
+
   %h2 Stat Cards
 
   .row
@@ -56,6 +69,7 @@
       %header
         %h4 Title
       .card-trend.positive
+        %i.icon.circle.circle-positive.circle-hollow &#58776;
         %h3
           Trend
         %small More Spending
@@ -72,6 +86,7 @@
       %header
         %h4 Title
       .card-trend.negative
+        %i.icon.circle.circle-negative.circle-hollow &#58777;
         %h3
           Trend
         %small Less spending
@@ -95,22 +110,25 @@
         %article
           %p
             %strong 544,567
-          .super-tab-trend
-            %span.stat-value
-              +1%
-            %p Increase in 5 years
-          %p 
+          .super-tab-trend.clear
+            %i.icon.circle.circle-positive &#58776;
+            %data
+              %span.stat-value +1%
+              %p Increase in 5 years
+          %p
             %strong 600,000 predicted for 2020
+
       .super-tab.selected#tab-two
         %header
           %h3 65+ Year Olds
         %article
           %p
             %strong 544,567
-          .super-tab-trend
-            %span.stat-value
-              +1%
-            %p Increase in 5 years
+          .super-tab-trend.clear
+            %i.icon.circle.circle-positive &#58776;
+            %data
+              %span.stat-value +1%
+              %p Increase in 5 years
           %p 
             %strong 600,000 predicted for 2020
       .super-tab.unselected#tab-three
@@ -119,10 +137,11 @@
         %article
           %p
             %strong 544,567
-          .super-tab-trend
-            %span.stat-value
-              +1%
-            %p Increase in 5 years
+          .super-tab-trend.clear
+            %i.icon.circle.circle-positive &#58776;
+            %data
+              %span.stat-value +1%
+              %p Increase in 5 years
           %p 
             %strong 600,000 predicted for 2020
 

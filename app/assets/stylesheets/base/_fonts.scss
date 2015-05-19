@@ -58,3 +58,13 @@
   font-weight:  400;
 }
 
+@font-face {
+  font-family: "streamline-30px-filled-in";
+  src:font-url("streamline-30px-filled-in.eot");
+  src:font-url("streamline-30px-filled-in.eot?#iefix") format("embedded-opentype"),
+    font-url("streamline-30px-filled-in.woff") format("woff"),
+    font-url("streamline-30px-filled-in.ttf") format("truetype"),
+    font-url("streamline-30px-filled-in.svg#streamline-30px-filled-in") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
