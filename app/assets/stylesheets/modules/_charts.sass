@@ -1,0 +1,46 @@
+.chart
+  padding: $base-spacing
+
+.key
+  margin-bottom: $base-spacing
+  padding-left: $base-spacing * 2
+  position: relative
+
+  &:before,
+  &:after
+    border-radius: 100px
+    content: ""
+    display: inline-block
+
+  &:before
+    +size(30px)
+    +position(absolute, -2px null null 0)
+    background: red
+    margin-right: $small-spacing
+
+  &:after
+    +size(20px)
+    +position(absolute, 3px null null 5px)
+    +transition(opacity .1s ease-in-out)
+    background: $white
+    opacity: 0
+
+  &:hover
+    cursor: pointer
+    &.inactive
+      text-decoration: underline
+      &:after
+        opacity: 1
+    &.active
+      text-decoration: none
+      &:after
+        opacity: 0
+
+  &.inactive
+    &:after
+      //opacity: 0
+
+  &.active
+    text-decoration: underline
+    &:after
+      opacity: 1
