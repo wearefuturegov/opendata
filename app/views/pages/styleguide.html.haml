@@ -56,6 +56,28 @@
 
       = link_to('Anchor tag', '#', class: 'button')
 
+  %h2 Forms
+
+  .row
+    %section.clear
+      %form.half
+        %legend Form Legend
+        %label Label
+        %input{type: 'text', placeholder: 'Text field'}
+        %label Label
+        %textarea{placeholder: 'Text Area'}
+        %label Label
+        = select_tag "Letters", options_for_select(['Aye', 'Bee', 'Sea'], 'Letters')
+        %label Label
+        %input{type: 'radio'}
+          Aye
+        %input{type: 'radio'}
+          Bee
+        %input{type: 'radio'}
+          Sea
+        %br/
+        %br/
+        %input{type: 'submit'}
   %h2 Icons
 
   .row

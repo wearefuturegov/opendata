@@ -29,10 +29,10 @@ label {
 #{$all-text-inputs},
 select[multiple=multiple],
 textarea {
-  background-color: $base-background-color;
-  border: $base-border;
-  border-radius: $base-border-radius;
-  box-shadow: $form-box-shadow;
+  background-color: $light-gray;
+  border: $light-border;
+  border-radius: 0;
+  box-shadow: none;
   box-sizing: border-box;
   font-family: $base-font-family;
   font-size: $base-font-size;
@@ -75,4 +75,11 @@ select {
   margin-bottom: $base-spacing;
   max-width: 100%;
   width: auto;
+}
+
+legend {
+  width: 100%;
+  border-bottom: $light-border;
+  margin-bottom: $small-spacing;
+  padding-bottom: $small-spacing
 }
