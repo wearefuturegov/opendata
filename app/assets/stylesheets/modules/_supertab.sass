@@ -2,7 +2,7 @@
 // Usage: +tabs-border(left, false)
 // Hover is true by default
 =tabs-border($side, $hover: true)
-  $t: (one: $eighteen-sixty, two: $sixtyfive-plus, three: $carers)
+  $t: (0: $eighteen-sixty, 1: $sixtyfive-plus, 2: $carers)
 
   @if $hover
     @each $number, $color in $t

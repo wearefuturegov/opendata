@@ -3,8 +3,9 @@
 %section.chart-wrapper
   %nav.super-tab-wrapper
     - if @area.audiences.any?
-      - @area.audiences.each do |audience|
-        .super-tab.unselected
+      - @area.audiences.each_with_index do |audience, index|
+        -# ID required by styling "#tab-0", "#tab-1" etc.
+        .super-tab.unselected{ id: "tab-" + index.to_s}
           %header
             %h3= link_to audience.title, area_audience_path(@area, audience)
           %article
@@ -17,7 +18,6 @@
                 %p Increase or decrease?
             %p
               %strong XXX,XXX predicted for 2020
-
 
   %section#chart-container
     %header
