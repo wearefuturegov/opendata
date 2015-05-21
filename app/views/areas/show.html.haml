@@ -1,10 +1,11 @@
-%h1= link_to @area.name, area_path(@area)
-%nav
-  %p= link_to "All areas", areas_path
-- if @area.audiences.any?
-  %ul
-    %li= link_to "Total population", area_path(@area)
-    - @area.audiences.each do |audience|
-      %li= link_to audience.title, area_audience_path(@area, audience)
-- if @audience.present?
-  %h2= @audience.title
+%section
+  %h1= @area.name
+  %nav
+    %p= link_to "All areas", areas_path
+  - if @area.audiences.any?
+    %ul
+      %li= link_to "Total population", area_path(@area)
+      - @area.audiences.each do |audience|
+        %li= link_to audience.title, area_audience_path(@area, audience)
+  - if @audience.present?
+    %h2= @audience.title

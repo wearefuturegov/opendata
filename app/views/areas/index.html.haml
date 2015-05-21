@@ -1,5 +1,6 @@
-%h1 Areas
-- if @areas.any?
-  %ul
-    - @areas.each do |area|
-      %li= link_to area.name, area_path(area)
+%section
+  %h1 Areas
+  - if @areas.any?
+    %ul
+      - @areas.each do |area|
+        %li= link_to area.name, area_path(area)
