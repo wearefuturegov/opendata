@@ -17,23 +17,36 @@
   height: 30%
 
   +media($medium-screen-up)
-    +span-columns(4 of 12)
+    +span-columns(12 of 12)
     margin-right: 3px
-    height: 100%
+    height: 40%
+    margin-bottom: 3px
   +media($large-screen-up)
     +span-columns(3 of 12, block-collapse)
     margin-right: 3px
+    height: 100%
+    margin-bottom: 0
 
 .super-tab
+  +box-sizing(border-box)
   height: calc(33.33% - 3px)
   background-color: $white
   margin-bottom: 3px
-  +box-sizing(border-box)
 
   +media($medium-screen-up)
+    +span-columns(4 of 12, block-collapse)
+    height: 100%
+
+    &:last-of-type
+      +omega
     p
       float: none
       margin-right: 0
+  +media($large-screen-up)
+    +span-columns(12 of 12, block-collapse)
+    height: calc(33.33% - 3px)
+    width: 100%
+    border-right: 0
 
   p
     float: left
@@ -46,12 +59,23 @@
     margin-bottom: 0
     height: 33.33%
     border-bottom: $base-border
+    +media($medium-screen-up)
+      height: 100%
+      border-bottom: 0
+    +media($large-screen-up)
+      width: 100%
+      height: 33.34%
+      border-bottom: $base-border
 
   &.unselected
+    +tabs-border(top, hover)
     +transition(all .1s ease-in-out)
     border-top: $big-border
 
     +media($medium-screen-up)
+      +tabs-border(top)
+    +media($large-screen-up)
+      +tabs-border(left)
       border-top: 0
       border-left: $big-border
 
@@ -60,26 +84,28 @@
       border-top-width: 7px
       border-top-style: solid
       +media($medium-screen-up)
+        border-top-width: 7px
+        border-top-style: solid
+      +media($large-screen-up)
         border-top: 0
         border-left-width: 7px
         border-left-style: solid
 
-    +tabs-border(top, hover)
-
-    +media($medium-screen-up)
-      +tabs-border(left)
-
   &.selected
+    +tabs-border(top, false)
     border-top-width: 7px
     border-top-style: solid
 
     +media($medium-screen-up)
+      +tabs-border(top, false)
+      border-top-width: 7px
+      border-top-style: solid
+    +media($large-screen-up)
+      +tabs-border(left, false)
       border-top: 0
       border-left-width: 7px
       border-left-style: solid
-      +tabs-border(left, false)
 
-    +tabs-border(top, false)
 
   header
     height: 80px

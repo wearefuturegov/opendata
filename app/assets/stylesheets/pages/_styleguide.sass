@@ -21,11 +21,11 @@
       display: inline-block
 
   +media($medium-screen-up)
-    +span-columns(7.9 of 12, block-collapse)
+    +span-columns(12 of 12)
     height: 100%
     margin-bottom: 0
   +media($large-screen-up)
-    +span-columns(6 of 12, block-collapse)
+    +span-columns(6 of 12)
     margin-right: 3px
 
 
@@ -45,13 +45,11 @@
       display: inline-block
 
   +media($medium-screen-up)
-    +span-columns(8.2 of 12, block-collapse)
-    +shift(3.75)
+    +span-columns(12 of 12, block-collapse)
     height: 100%
   +media($large-screen-up)
     +span-columns(3 of 12, block-collapse)
-    +shift(0)
-    width: 22.7% !important
+    +omega
 
 #styleguide-icon-demo
   background-color: $positive
