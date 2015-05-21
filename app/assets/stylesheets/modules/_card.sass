@@ -62,7 +62,12 @@
 .stat-value,
 .stat-value-na
   @extend h2
-  font-size: 1.6em
+  font-size: 1.2em
+  margin-right: $small-spacing
+
+  +media($medium-screen-up)
+    font-size: 1.6em
+    margin-right: 0
 
 .stat-value-na
   color: $medium-dark-gray

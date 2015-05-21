@@ -3,14 +3,20 @@
   font-style: normal
 
 .circle
-  +size(60px)
+  +size(30px)
   border-radius: 100px
   background-color: $dark-gray
   color: $white
   display: inline-block
-  line-height: 60px
+  line-height: 30px
   text-align: center
   vertical-align: middle
+  font-size: .5em
+
+  +media($medium-screen-up)
+    +size(60px)
+    font-size: 1em
+    line-height: 60px
 
 .circle-positive
   background-color: $positive
@@ -22,3 +28,4 @@
   +size(54px)
   border: 3px solid $white
   line-height: 50px
+  font-size: 1em
