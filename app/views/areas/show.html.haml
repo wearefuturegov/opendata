@@ -12,15 +12,18 @@
             %p
               %strong XXX,XXX
             .super-tab-trend.clear
+              -# TODO: Helper / Decorator to decide positive or negative
               %i.icon.circle.circle-positive &#58776;
               %data
+                -# TODO: Real stats!
                 %span.stat-value +XX%
                 %p Increase or decrease?
             %p
               %strong XXX,XXX predicted for 2020
 
   %section#chart-container
-    %header
+    -# TODO: Add ID to match color of currently selected tab
+    %header#tab-1
       - if @audience.present?
         %h2.white= @audience.title
     .chart
