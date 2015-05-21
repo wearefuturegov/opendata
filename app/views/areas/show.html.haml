@@ -1,11 +1,30 @@
-%section
-  %h1= @area.name
-  %nav
-    %p= link_to "All areas", areas_path
-  - if @area.audiences.any?
-    %ul
-      %li= link_to "Total population", area_path(@area)
+%h2= "Population of " + @area.name
+= link_to "Total population", area_path(@area)
+%section.chart-wrapper
+  %nav.super-tab-wrapper
+    - if @area.audiences.any?
       - @area.audiences.each do |audience|
-        %li= link_to audience.title, area_audience_path(@area, audience)
-  - if @audience.present?
-    %h2= @audience.title
+        .super-tab.unselected
+          %header
+            %h3= link_to audience.title, area_audience_path(@area, audience)
+          %article
+            %p
+              %strong XXX,XXX
+            .super-tab-trend.clear
+              %i.icon.circle.circle-positive &#58776;
+              %data
+                %span.stat-value +XX%
+                %p Increase or decrease?
+            %p
+              %strong XXX,XXX predicted for 2020
+
+
+  %section#chart-container
+    %header
+      - if @audience.present?
+        %h2.white= @audience.title
+    .chart
+      CHART HERE
+  %aside#spotlight-container
+    %header
+      %h2 Spotlight
