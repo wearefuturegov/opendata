@@ -13,3 +13,31 @@
 .home-summary
   border-left: $big-border
   +media($large-screen-up)
+
+.home-progress
+
+  header
+    margin-top: -24px
+    margin-bottom: -24px
+    padding: $base-spacing
+
+  .third
+    position: relative
+
+  div.third
+    &:nth-of-type(1)
+      margin-top: $base-spacing * 2
+      margin-bottom: $base-spacing
+
+  +media($large-screen-up)
+    header
+      margin-top: -24px
+      margin-bottom: -24px
+    div.third
+      &:nth-of-type(1)
+        margin-top: 0
+        margin-bottom: 0
+
+  blockquote
+    position: relative
+    z-index: $middle-z-index
