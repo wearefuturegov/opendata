@@ -48,6 +48,8 @@
       %h3 We created a game to explore available data sets
   .third
     This helped practitioners see the context of data-sets in a new light.
+
+  .third
     %ul.link-list
       -# TODO: Make these dynamic
       %li
@@ -61,9 +63,6 @@
           %span.document-type.doc DOC
           important.doc
 
-  .third
-    = image_tag("home-illu_game.png")
-
 %section.home-progress.clear
   %header.third
     .decorative-bg
@@ -72,7 +71,18 @@
   .third
     From this we produced user profiles, which helped us explore the data more efficently.
   .third
-    = image_tag("home-illu_profiles.png")
+    %ul.link-list
+      -# TODO: Make these dynamic
+      %li
+        %a.document-link{ href: '#' }
+          %i.icon.icon-document-1
+          %span.document-type.pdf PDF
+          document_name.pdf
+      %li
+        %a.document-link{ href: '#' }
+          %i.icon.icon-document-1
+          %span.document-type.doc DOC
+          important.doc
 
 %section.home-progress.clear
   %header.third
@@ -82,7 +92,18 @@
   .third
     The agreement currently spans accross 3 Councils and a private company. This ensures details can be easily shared.
   .third
-    = image_tag("home-illus_agreements.png")
+    %ul.link-list
+      -# TODO: Make these dynamic
+      %li
+        %a.document-link{ href: '#' }
+          %i.icon.icon-document-1
+          %span.document-type.pdf PDF
+          document_name.pdf
+      %li
+        %a.document-link{ href: '#' }
+          %i.icon.icon-document-1
+          %span.document-type.doc DOC
+          important.doc
 
 %section.home-progress.clear
   %header.third
@@ -92,7 +113,18 @@
   .third
     Find out how we structured our workshop with stakeholders.
   .third
-    = image_tag("home-illus_workshop.png")
+    %ul.link-list
+      -# TODO: Make these dynamic
+      %li
+        %a.document-link{ href: '#' }
+          %i.icon.icon-document-1
+          %span.document-type.pdf PDF
+          document_name.pdf
+      %li
+        %a.document-link{ href: '#' }
+          %i.icon.icon-document-1
+          %span.document-type.doc DOC
+          important.doc
 
 %section.home-progress.clear
   %header.third
@@ -101,10 +133,18 @@
       %h3 We created our final report on data sharing and opening up data sets
   .third
     Amet dolorum commodi illo modi excepturi ipsa! Facilis modi alias adipisci delectus aliquam. Beatae magnam delectus blanditiis officiis doloribus ipsum.
-  .third
-    = image_tag("home-illus_report.png")
+  .third.highlighted
+    %p All of this data is published on data.gov.uk
+    %a{href: '#'}
+      Devon
+    %br/
+    %a{href: '#'}
+      Kingston
+    %br/
+    %a{href: '#'}
+      Sutton
 
-%section.transparent
-  = link_to "Got questions?", "#"
-  = link_to "Want to use this data?", "#"
-  = link_to "Get in touch", "#"
+%section.transparent#home-subfooter
+  = link_to "Got questions?", "#", class: 'large-link'
+  = link_to "Want to use this data?", "#", class: 'large-link'
+  = link_to "Get in touch", "#", class: 'large-link'
