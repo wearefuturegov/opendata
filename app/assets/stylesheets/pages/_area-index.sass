@@ -15,29 +15,34 @@
   +media($large-screen-up)
 
 .home-progress
+  position: relative
+  min-height: 200px
+
+  blockquote
+    position: relative
+    z-index: $middle-z-index
+
+  .third
+    position: relative
 
   header
     margin-top: -24px
     margin-bottom: -24px
     padding: $base-spacing
-
-  .third
-    position: relative
+    +media($large-screen-up)
+      position: absolute !important
+      height: 100%
 
   div.third
     &:nth-of-type(1)
       margin-top: $base-spacing * 2
       margin-bottom: $base-spacing
+      +media($large-screen-up)
+        +shift(4)
 
   +media($large-screen-up)
-    header
-      margin-top: -24px
-      margin-bottom: -24px
     div.third
       &:nth-of-type(1)
         margin-top: 0
         margin-bottom: 0
 
-  blockquote
-    position: relative
-    z-index: $middle-z-index
