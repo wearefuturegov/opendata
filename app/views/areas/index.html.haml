@@ -1,4 +1,6 @@
-%h1 Understand your local care market
+%h1 
+  Understand your
+  = t('app.name')
 
 .row
   %section.half
@@ -7,20 +9,35 @@
       =@areas.count
       Areas
     - if @areas.any?
-      %ul
+      %ul.link-list
         - @areas.each do |area|
           %li= link_to area.name, area_path(area)
 
   %section.half
     %h3 Find your area
+    %p 
+      As this project grows more areas will become available, get in contact with us if you want to become part of
+      = t('app.name') + "."
+    %br/
+    -# TODO: Replace with rails form!
+    %form#area-finder
+      %fieldset
+        = text_field_tag 'area', nil, placeholder: 'e.g. Devon, Exeter', class: 'inline'
+        %input{ type: 'Submit', value: 'Search', class: 'inline' }
 
 .row
-  %section.third
+  %section.third.home-summary
     %h3 Background
-  %section.third
+    %article
+      %p This project was created in a funding challenge set by the Cabinet Office with the aim to help Councils release more adult social care data under the open data license.
+  %section.third.home-summary
     %h3 The first phase
-  %section.third
+    %article
+      %p First we focussed on exploring the available data-sets and finding processes to open them up on a regular basis. You can find the relvant materials below.
+  %section.third.home-summary
     %h3 The second phase
+    %article
+      %p In the second phase we used that data to build a working prototype that aims to show how bringing these data-sets together might benefit the general public, providers or council commisioners with thier needs and tasks. Choose an area above to see the results.
 
 %h2 What happened
 

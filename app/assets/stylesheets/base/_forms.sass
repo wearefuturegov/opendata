@@ -1,8 +1,8 @@
 fieldset
-  background-color: lighten($base-border-color, 10%)
-  border: $base-border
-  margin: 0 0 $small-spacing
-  padding: $base-spacing
+  //background-color: lighten($base-border-color, 10%)
+  border: 0
+  //margin: 0 0 $small-spacing
+  //padding: $base-spacing
 
 input,
 label,
@@ -39,6 +39,10 @@ textarea
     border-color: $action-color
     box-shadow: $form-box-shadow-focus
     outline: none
+  // Display inline with other fields or buttons
+  &.inline
+    display: inline-block
+    margin-top: 0
 
 textarea
   resize: vertical
