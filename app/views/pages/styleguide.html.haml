@@ -35,6 +35,34 @@
     %p
       %small Small text: Etiam porta sem malesuada magna mollis euismod.
 
+%h2 Lists
+
+.row
+  %section.half
+    %h3 Unordered list
+    %ul
+      %li List item
+      %li List item
+      %li List item
+
+    %h3 Ordered list
+    %ol
+      %li List item
+      %li List item
+      %li List item
+  %section.half
+    %h3 'Link List'
+    %ul.link-list
+      %li 
+        %a{ href: '#' }
+          Link
+      %li 
+        %a{ href: '#' }
+          Link
+      %li 
+        %a{ href: '#' }
+          Link
+
 %h2 Containers
 
 .row
@@ -85,6 +113,20 @@
     %i.icon.circle.circle-positive.circle-hollow &#58776;
     %i.icon.circle.circle-negative.circle-hollow &#58777;
     %i.icon.circle.circle-positive.circle-hollow &#58129;
+.row
+  %section.half
+    %ul.link-list
+      %li
+        %a.document-link{ href: '#' }
+          %i.icon.icon-document-1
+          %span.document-type.pdf PDF
+          document_name.pdf
+      %li
+        %a.document-link{ href: '#' }
+          %i.icon.icon-document-1
+          %span.document-type.doc DOC
+          important.doc
+
 
 %h2 Stat Cards
 
