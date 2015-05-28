@@ -4,5 +4,18 @@
     %p The information provided is published under the open government license and can be downloaded in a .CSV format.
   .footer-section
     %h4 Related
-  .footer-section
+    %p You can explore more data on:
+    %a{href: "http://www.ons.gov.uk/"}
+      ONS.gov.uk
+    %br/
+    %a{href:"http://data.gov.uk/"}
+      DATA.gov.uk
+  .footer-section.clear
     %h4 About This Project
+    .half
+      %h5 Funded by
+      = image_tag("cabinet_office.png", id: 'cabinet-logo')
+    .half
+      %h5 Created by
+      = image_tag("futuregov.png", id: 'futuregov-logo')
+      = image_tag("devon_cc.png", id: 'devon-logo')

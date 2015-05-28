@@ -14,7 +14,26 @@
   +media($medium-screen-up)
     +span-columns(4 of 12)
     border-right: 3px solid $medium-gray
-    padding: $base-spacing
+    padding: $base-spacing 0
+
+    &:first-of-type
+      padding-left: $base-spacing
 
     &:last-of-type
       border: 0
+
+#cabinet-logo,
+#futuregov-logo,
+#devon-logo
+  width: 30%
+
+#cabinet-logo
+  +media($medium-screen-up)
+    width: 70%
+#futuregov-logo
+  +media($medium-screen-up)
+    width: 70%
+    margin-bottom: $small-spacing
+#devon-logo
+  +media($medium-screen-up)
+    width: 50%
