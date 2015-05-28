@@ -1,6 +1,60 @@
-%section
-  %h1 Areas
-  - if @areas.any?
-    %ul
-      - @areas.each do |area|
-        %li= link_to area.name, area_path(area)
+%h1 Understand your local care market
+
+.row
+  %section.half
+    %h3 
+      We are currently live in
+      =@areas.count
+      Areas
+    - if @areas.any?
+      %ul
+        - @areas.each do |area|
+          %li= link_to area.name, area_path(area)
+
+  %section.half
+    %h3 Find your area
+
+.row
+  %section.third
+    %h3 Background
+  %section.third
+    %h3 The first phase
+  %section.third
+    %h3 The second phase
+
+%h2 What happened
+
+%section.clear
+  .third
+    %h3 We created a game to explore available data sets
+  .third
+    Downloads
+
+%section.clear
+  .third
+    %h3 We learned more about users to ensure we design to their needs
+  .third
+    Downloads
+
+%section.clear
+  .third
+    %h3 We created shared data agreements
+  .third
+    Downloads
+
+%section.clear
+  .third
+    %h3 More workshop materials
+  .third
+    Downloads
+
+%section.clear
+  .third
+    %h3 We created our final report on data sharing and opening up data sets
+  .third
+    Downloads
+
+%section.transparent
+  = link_to "Got questions?", "#"
+  = link_to "Want to use this data?", "#"
+  = link_to "Get in touch", "#"
