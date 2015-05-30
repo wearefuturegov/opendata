@@ -1,3 +1,5 @@
+// TODO: MAKE THIS WHOLE FILE LESS OF A COMPLETE NIGHTMARE
+
 // Mixin to make color coding super tab border easier
 // Usage: +tabs-border(left, false)
 // Hover is true by default
@@ -14,7 +16,7 @@
         border-#{$side}-color: $color
 
 .super-tab-wrapper
-  height: 30%
+  position: relative
 
   +media($medium-screen-up)
     +span-columns(12 of 12)
@@ -23,31 +25,16 @@
     margin-bottom: 3px
   +media($large-screen-up)
     +span-columns(3 of 12, block-collapse)
-    margin-right: 3px
     height: 100%
     margin-bottom: 0
 
 .super-tab
   +box-sizing(border-box)
-  height: calc(33.33% - 3px)
-  background-color: $white
+  width: calc(33.33% - 3px)
+  margin-right: 3px
   margin-bottom: 3px
-
-  +media($medium-screen-up)
-    +span-columns(4 of 12, block-collapse)
-    height: 100%
-
-    &:last-of-type
-      +omega
-    p
-      float: none
-      margin-right: 0
-  +media($large-screen-up)
-    +span-columns(12 of 12, block-collapse)
-    height: calc(33.33% - 3px)
-    width: 100%
-    border-right: 0
-
+  float: left
+  background-color: $white
   p
     float: left
     margin-right: $base-spacing
@@ -57,15 +44,26 @@
 
   &:last-of-type
     margin-bottom: 0
-    height: 33.33%
-    border-bottom: $base-border
     +media($medium-screen-up)
       height: 100%
-      border-bottom: 0
     +media($large-screen-up)
       width: 100%
       height: 33.34%
       border-bottom: $base-border
+
+  +media($medium-screen-up)
+    height: 100%
+    &:last-of-type
+      +omega
+    p
+      float: none
+      margin-right: 0
+
+  +media($large-screen-up)
+    +span-columns(12 of 12, block-collapse)
+    height: calc(33.33% - 3px)
+    width: 100%
+    border-right: 0
 
   &.unselected
     +tabs-border(top, hover)
@@ -91,6 +89,11 @@
         border-left-width: 7px
         border-left-style: solid
 
+    article
+      display: none
+      +media($medium-screen-up)
+        display: block
+
   &.selected
     +tabs-border(top, false)
     border-top-width: 7px
@@ -106,14 +109,16 @@
       border-left-width: 7px
       border-left-style: solid
 
+    article
+      +position(absolute, null null 0px 0px)
+      +media($medium-screen-up)
+        position: initial
 
   header
     height: 80px
     background-color: $light-gray
     padding-left: $base-spacing
     line-height: 80px
-    vertical-align: middle
-
     h3
       line-height: normal
       display: inline-block
@@ -123,22 +128,18 @@
 
 .super-tab-trend
   float: left
-
   span
     margin-bottom: 0
-
   span, p
     display: inline-block
   p
     float: none
-
   i, data
     float: left
   i
     margin-right: $small-spacing
   data
     margin-top: -5px
-
     +media($medium-screen-up)
       margin-top: 0
 
@@ -146,3 +147,9 @@
     span,
     p
       display: block
+
+.super-tab-info
+  min-height: 16em
+  margin-bottom: 0
+  +media($medium-screen-up)
+    display: none
