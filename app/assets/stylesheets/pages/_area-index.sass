@@ -1,3 +1,9 @@
+#area-list
+  +media($medium-screen-up)
+    min-height: 22.5em
+  +media($large-screen-up)
+    min-height: 0
+
 #area-finder
   background-color: $light-gray
   padding: $base-spacing
@@ -12,7 +18,22 @@
 
 .home-summary
   border-left: $big-border
+  +media($medium-large-screen-up)
+    &:first-of-type,
+    &:nth-of-type(2)
+      +span-columns(6 of 12)
+      min-height: 13em
+    &:nth-of-type(2)
+      +omega
+    &:last-of-type
+      +span-columns(12 of 12)
   +media($large-screen-up)
+    &:first-of-type,
+    &:nth-of-type(2),
+    &:last-of-type
+      +span-columns(4 of 12)
+    min-height: 17em !important
+    max-height: 25em
 
 .home-progress
   position: relative
