@@ -5,7 +5,6 @@
 // Hover is true by default
 =tabs-border($side, $hover: true)
   $t: (0: $eighteen-sixty, 1: $sixtyfive-plus, 2: $carers)
-
   @if $hover
     @each $number, $color in $t
       &#tab-#{$number}:hover
@@ -20,9 +19,8 @@
 
   +media($medium-screen-up)
     +span-columns(12 of 12)
-    margin-right: 3px
+    margin: 0 3px 3px 0
     height: 40%
-    margin-bottom: 3px
   +media($large-screen-up)
     +span-columns(3 of 12, block-collapse)
     height: 100%
@@ -31,10 +29,22 @@
 .super-tab
   +box-sizing(border-box)
   width: calc(33.33% - 3px)
-  margin-right: 3px
-  margin-bottom: 3px
+  margin: 0 3px 3px 0
   float: left
   background-color: $white
+
+  header
+    height: 80px
+    background-color: $light-gray
+    padding-left: $base-spacing
+    line-height: 80px
+    h3
+      line-height: normal
+      display: inline-block
+
+  article
+    padding: $base-spacing
+
   p
     float: left
     margin-right: $base-spacing
@@ -44,11 +54,7 @@
 
   &:last-of-type
     margin-bottom: 0
-    +media($medium-screen-up)
-      height: 100%
     +media($large-screen-up)
-      width: 100%
-      height: 33.34%
       border-bottom: $base-border
 
   +media($medium-screen-up)
@@ -65,72 +71,49 @@
     width: 100%
     border-right: 0
 
+.super-tab
   &.unselected
-    +tabs-border(top, hover)
+    +tabs-border(top)
     +transition(all .1s ease-in-out)
     border-top: $big-border
 
-    +media($medium-screen-up)
-      +tabs-border(top)
     +media($large-screen-up)
       +tabs-border(left)
-      border-top: 0
       border-left: $big-border
+      border-top: 0
 
     &:hover
       cursor: pointer
-      border-top-width: 7px
-      border-top-style: solid
-      +media($medium-screen-up)
-        border-top-width: 7px
-        border-top-style: solid
+      border-top: 7px solid
       +media($large-screen-up)
         border-top: 0
-        border-left-width: 7px
-        border-left-style: solid
+        border-left: 7px solid
 
     article
       display: none
       +media($medium-screen-up)
         display: block
 
+.super-tab
   &.selected
     +tabs-border(top, false)
-    border-top-width: 7px
-    border-top-style: solid
+    border-top: 7px solid
 
-    +media($medium-screen-up)
-      +tabs-border(top, false)
-      border-top-width: 7px
-      border-top-style: solid
     +media($large-screen-up)
       +tabs-border(left, false)
       border-top: 0
-      border-left-width: 7px
-      border-left-style: solid
+      border-left: 7px solid
 
     article
       +position(absolute, null null 0px 0px)
       +media($medium-screen-up)
         position: initial
 
-  header
-    height: 80px
-    background-color: $light-gray
-    padding-left: $base-spacing
-    line-height: 80px
-    h3
-      line-height: normal
-      display: inline-block
-
-  article
-    padding: $base-spacing
-
 .super-tab-trend
   float: left
-  span
+  .stat-value
     margin-bottom: 0
-  span, p
+  .stat-value, p
     display: inline-block
   p
     float: none
@@ -140,13 +123,13 @@
     margin-right: $small-spacing
   data
     margin-top: -5px
-    +media($medium-screen-up)
-      margin-top: 0
 
   +media($medium-screen-up)
-    span,
+    .stat-value,
     p
       display: block
+    data
+      margin-top: 0
 
 .super-tab-info
   min-height: 16em
