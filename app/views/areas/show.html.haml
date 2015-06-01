@@ -4,8 +4,8 @@
   %nav.super-tab-wrapper
     - if @area.audiences.any?
       - @area.audiences.each_with_index do |audience, index|
-        -# ID required by styling "#tab-0", "#tab-1" etc.
-        .super-tab.unselected{ id: "tab-" + index.to_s}
+        -# ID required by styling "#tab-1", "#tab-2" etc.
+        .super-tab{ id: "tab-" + (index + 1).to_s, class: (index == 0 ? "selected" : "unselected")}
           %header
             %h3= link_to audience.title, area_audience_path(@area, audience)
           %article
