@@ -1,6 +1,10 @@
+form
+  margin-top: $base-spacing
+
 fieldset
   //background-color: lighten($base-border-color, 10%)
   border: 0
+  position: relative
   //margin: 0 0 $small-spacing
   //padding: $base-spacing
 
@@ -65,6 +69,7 @@ select
   width: auto
 
 legend
+  +position(absolute, -60px null null 0px)
   width: 100%
   border-bottom: $light-border
   margin-bottom: $small-spacing
