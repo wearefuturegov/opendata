@@ -12,6 +12,7 @@
 
 #chart-container
   margin-bottom: 0
+  +span-columns(8 of 8)
 
   header
     &#tab_18-65
@@ -21,20 +22,20 @@
     &#tab_carers
       background-color: $carers
 
-  +media($medium-screen-up)
-    +span-columns(12 of 12)
-    margin-bottom: 0
   +media($large-screen-up)
     +span-columns(6 of 12)
     margin-right: 3px
     height: 100%
 
 #spotlight-container
+  +span-columns(8 of 8)
+
   header
     background-color: $light-gray
 
-  +media($medium-screen-up)
-    +span-columns(12 of 12, block-collapse)
+  article
+    padding: $base-spacing
+
   +media($large-screen-up)
     +span-columns(3 of 12, block-collapse)
     +omega
