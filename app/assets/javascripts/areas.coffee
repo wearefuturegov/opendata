@@ -1,4 +1,4 @@
-$(document).ready ->
+ready = ->
   supertabs = $(".super-tab")
 
   # On click toggle classes
@@ -11,3 +11,6 @@ $(document).ready ->
     t.siblings().addClass('unselected')
     t.siblings().removeClass('selected')
 
+$(document).ready(ready)
+# Wait for turbolinks
+$(document).on('page:load', ready)
