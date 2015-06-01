@@ -4,14 +4,14 @@
 // Usage: +tabs-border(left, false)
 // Hover is true by default
 =tabs-border($side, $hover: true)
-  $t: (0: $eighteen-sixty, 1: $sixtyfive-plus, 2: $carers)
+  $t: (1: $eighteen-sixty, 2: $sixtyfive-plus, 3: $carers)
   @if $hover
     @each $number, $color in $t
-      &#tab-#{$number + 1}:hover
+      &#tab-#{$number}:hover
         border-#{$side}-color: $color
   @else
     @each $number, $color in $t
-      &#tab-#{$number + 1}
+      &#tab-#{$number}
         border-#{$side}-color: $color
 
 .super-tab-wrapper
@@ -33,6 +33,12 @@
   float: left
   background-color: $white
   cursor: pointer
+
+  a 
+    text-decoration: none
+  a *
+    color: $base-font-color
+    text-decoration: none
 
   header
     height: 80px
