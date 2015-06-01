@@ -24,8 +24,7 @@
     %section.super-tab-info.clear
 
   %section#chart-container
-    -# TODO: Add ID to match color of currently selected tab
-    %header.chart-header#tab-1
+    %header.chart-header{ id: chart_heading_id }
       - if @audience.present?
         %h2.white= @audience.title
     .chart
