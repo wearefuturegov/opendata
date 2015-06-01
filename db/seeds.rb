@@ -6,7 +6,7 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-audiences = Audience.create([{ title: '18-65' }, { title: '65+' }, { title: 'Carers' }])
+audiences = Audience.create([{ title: '18-65 Year Olds' }, { title: '65+ Year Olds' }, { title: 'Carers' }])
 
 Area.create([
   { name: 'Devon', audiences: audiences }, 
