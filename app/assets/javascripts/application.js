@@ -13,4 +13,6 @@
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
-//= require_tree .
+//= require notices.coffee
+//= require areas.coffee
+//= require modernizr-latest
