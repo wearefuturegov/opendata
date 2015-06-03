@@ -13,6 +13,9 @@
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
+//= require modernizr-latest
+//= require d3
+//= require c3
 //= require notices.coffee
 //= require areas.coffee
-//= require modernizr-latest
+

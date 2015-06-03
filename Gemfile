@@ -43,3 +43,10 @@ group :development, :test do
   gem 'web-console', '~> 2.0'
   gem 'spring'
 end
+
+# Bower assets served by rails-assets.org
+# They will bundle normally without node!
+source 'https://rails-assets.org' do
+  gem 'rails-assets-d3'
+  gem 'rails-assets-c3'
+end
