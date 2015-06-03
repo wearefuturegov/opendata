@@ -4,3 +4,49 @@
   display: block
   background-color: $light-gray
   z-index: $back-z-index
+
+.aside-header
+  margin-bottom: $base-spacing * 2
+  +media($large-screen-up)
+    height: 83px
+  
+  h1,
+  h2
+    +media($large-screen-up)
+      float: left
+      margin-right: $base-spacing
+      margin-top: $small-spacing
+
+  aside
+    background-color: transparent
+    padding: 0
+    margin: 0
+    +media($medium-screen-up)
+      display: block
+      clear: both
+      width: 100%
+    +media($large-screen-up)
+      max-width: 60%
+      min-width: 60%
+      float: right
+      clear: none
+
+  div
+    height: 80px
+    +media($medium-screen-up)
+      +span-columns(4, block-collapse)
+      width: 33.33%
+
+  div:nth-of-type(2n),
+  div:nth-of-type(3n)
+    background-color: $white
+    padding: $small-spacing $base-spacing
+
+  div:nth-of-type(3n)
+    +media($medium-screen-up)
+      border-left: $light-border
+
+  span
+    font-family: $heading-font-family
+    font-size: 1.2em
+

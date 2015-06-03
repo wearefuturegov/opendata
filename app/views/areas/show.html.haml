@@ -1,5 +1,18 @@
-%h2= "Population of " + @area.name
-= link_to "Total population", area_path(@area)
+%header.aside-header
+  %h1= "Population of " + @area.name
+  %aside
+    %div.highlighted
+      %h4 Total Population 
+    %div
+      %span XX.X% Female
+      %br/
+      %small XXX,XXX people
+    %div
+      %span XX.X% Male
+      %br/
+      %small XXX,XXX people
+    %span.clear
+
 %section.chart-wrapper
   %nav.super-tab-wrapper
     - if @area.audiences.any?
@@ -26,4 +39,29 @@
 
   %section#chart-container
   %aside#spotlight-container
+
+%h1
+  Public funding for care in 
+  = @area.name
+
+%section.transparent#card-wrapper
+  .row
+    -# TODO: Make these real
+    %section.card
+      %header
+        %h4 Title
+      .card-trend.negative
+        %i.icon.circle.circle-negative.circle-hollow &#58777;
+        %h3
+          Trend
+        %small Less spending
+      .card-stat
+        %h5 Council Spending
+        %span.stat-value-na
+          Not Provided
+      .card-stat
+        %h5 NHS Spending
+        %span.stat-value
+          £18m
+
 
