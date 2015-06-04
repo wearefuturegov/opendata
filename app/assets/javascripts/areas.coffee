@@ -41,6 +41,8 @@ ready = ->
         type: 'spline'
 
       bindto: '.chart'
+      transition:
+        duration: 1000
       grid:
         y: 
           show: true

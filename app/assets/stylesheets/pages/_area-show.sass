@@ -33,6 +33,8 @@
 
   header
     background-color: $light-gray
+    +media($large-screen-up)
+      border-top-right-radius: $base-border-radius 
 
   article
     padding: $base-spacing
@@ -41,6 +43,7 @@
     width: 22.6%
     +omega
     height: 100%
+    border-top-right-radius: $base-border-radius 
 
 #card-wrapper
   padding: 0
