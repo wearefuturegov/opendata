@@ -3,7 +3,7 @@ module AreasHelper
   # Enables us to change the background color of the chart header
   def chart_heading_id
     if @audience.present?
-      return "tab_" + @audience.title.parameterize
+      return "tab_" + @audience.id.to_s
     end
   end
 end
