@@ -4,10 +4,8 @@ class AudiencesController < ApplicationController
     @audience = Audience.find(params[:id])
     @area = Area.find(params[:area_id])
 
-    respond_to do |format|
-      format.html
-      format.js
-    end
+    # Loads via AJAX no need for layout style
+    render layout: false
   end
 
 end

@@ -18,7 +18,7 @@
     - if @area.audiences.any?
       - @area.audiences.each_with_index do |audience, index|
         -# ID required by styling "#tab-1", "#tab-2" etc.
-        .super-tab{ id: "tab-" + (index + 1).to_s, class: 'unselected' }
+        .super-tab{ id: "tab-" + (index + 1).to_s, class: (index == 0 ? "selected" : "unselected"), data: { ajax: area_audience_path(@area, audience) }}
           = link_to area_audience_path(@area, audience), remote: true do
             %header
               %h3= audience.title
@@ -38,7 +38,9 @@
     %section.super-tab-info.clear
 
   %section#chart-container
+    -# Will be rendered via AJAX (areas.coffee)
   %aside#spotlight-container
+    = render 'audiences/spotlight', locals: {}
 
 %h1
   Public funding for care in 
