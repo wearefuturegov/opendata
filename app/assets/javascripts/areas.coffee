@@ -1,13 +1,20 @@
 ready = ->
+  # Load a url via AJAX
+  loadAJAX = (url) ->
+    $('#chart-container').load url,(responseText, textStatus, XMLHttpRequest) ->
+      if (textStatus == 'success')
+        generateChart()
+      else
+        console.log(textStatus)
+        console.log(responseText)
+
   supertabs = $(".super-tab")
 
   firsttab = supertabs[0]
   href = firsttab.attributes[1].value
 
   # Load first tab by default
-  $('#chart-container').load href,(responseText, textStatus, XMLHttpRequest) ->
-    if (textStatus == 'success')
-      loadChart()
+  loadAJAX(href)
 
   # On click toggle classes
   supertabs.click ->
@@ -19,17 +26,16 @@ ready = ->
       t.toggleClass('unselected')
       t.toggleClass('selected')
 
+      # Deselect other tabs
       t.siblings().addClass('unselected')
       t.siblings().removeClass('selected')
 
       href = t[0].attributes[1].value
 
       # Load via ajax
-      $('#chart-container').load href,(responseText, textStatus, XMLHttpRequest) ->
-        if (textStatus == 'success')
-          loadChart()
+      loadAJAX(href)
 
-  loadChart = ->
+  generateChart = ->
     # Render chart
     chart = c3.generate(
       data:
@@ -49,6 +55,7 @@ ready = ->
       legend:
         show: false
     )
+
     # Render legend
     d3.select('.legend').selectAll('li').data([
       'Foo'
