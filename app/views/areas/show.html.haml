@@ -18,7 +18,11 @@
     - if @area.audiences.any?
       - @area.audiences.each_with_index do |audience, index|
         -# ID required by styling "#tab-1", "#tab-2" etc.
-        .super-tab{ id: "tab-" + (index + 1).to_s, class: (index == 0 ? "selected" : "unselected"), data: { ajax: area_audience_path(@area, audience) }}
+        -# Class to select default tab on view load
+        -# 'ajax_*' attributes are passed to area.coffee to load via AJAX
+        .super-tab{ id: "tab-" + (index + 1).to_s,
+          class: (index == 0 ? "selected" : "unselected"),
+          data: { ajax_chart: area_audience_path(@area, audience), ajax_details: breakdown_audience_path(audience.id) }}
           = link_to area_audience_path(@area, audience), remote: true do
             %header
               %h3= audience.title
@@ -40,30 +44,12 @@
   %section#chart-container
     -# Will be rendered via AJAX (areas.coffee)
   %aside#spotlight-container
-    = render 'audiences/spotlight', locals: {}
+    = render 'audiences/spotlight'
+
 
 %h1
   Public funding for care in 
   = @area.name
 
 %section.transparent#card-wrapper
-  .row
-    -# TODO: Make these real
-    %section.card
-      %header
-        %h4 Title
-      .card-trend.negative
-        %i.icon.circle.circle-negative.circle-hollow &#58777;
-        %h3
-          Trend
-        %small Less spending
-      .card-stat
-        %h5 Council Spending
-        %span.stat-value-na
-          Not Provided
-      .card-stat
-        %h5 NHS Spending
-        %span.stat-value
-          £18m
-
-
+  -# Will be rendered via AJAX (areas.coffee)

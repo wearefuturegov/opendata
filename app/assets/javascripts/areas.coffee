@@ -1,20 +1,25 @@
 ready = ->
   # Load a url via AJAX
-  loadAJAX = (url) ->
-    $('#chart-container').load url,(responseText, textStatus, XMLHttpRequest) ->
+  loadAJAX = (chart, cards) ->
+    console.log(chart)
+    console.log(cards)
+    $('#chart-container').load chart,(responseText, textStatus, XMLHttpRequest) ->
       if (textStatus == 'success')
         generateChart()
       else
         console.log(textStatus)
-        console.log(responseText)
+    $('#card-wrapper').load cards,(responseText, textStatus, XMLHttpRequest) ->
+      if (textStatus != 'success')
+        console.log(textStatus)
 
   supertabs = $(".super-tab")
 
   firsttab = supertabs[0]
-  href = firsttab.attributes[1].value
+  chart = firsttab.attributes[1].value
+  cards = firsttab.attributes[2].value
 
   # Load first tab by default
-  loadAJAX(href)
+  loadAJAX(chart, cards)
 
   # On click toggle classes
   supertabs.click ->
@@ -30,10 +35,11 @@ ready = ->
       t.siblings().addClass('unselected')
       t.siblings().removeClass('selected')
 
-      href = t[0].attributes[1].value
+      chart = t[0].attributes[1].value
+      cards = t[0].attributes[2].value
 
       # Load via ajax
-      loadAJAX(href)
+      loadAJAX(chart, cards)
 
   generateChart = ->
     # Render chart
@@ -42,7 +48,10 @@ ready = ->
         columns: [ 
           [ "Foo", 30, 200, 100, 400, 150, 250 ],
           [ "Bar", 130, 100, 140, 200, 150, 50 ],
-          [ "Baz", 40, 50, 60, 70, 80, 90]
+          [ "Baz", 40, 50, 60, 70, 80, 90],
+          [ "FooBar", 45, 75, 20, 67, 120, 130],
+          [ "BarFoo", 57, 43, 34, 267, 82, 30],
+          [ "BarBaz", 200, 100, 50, 25, 50, 100]
         ]
         type: 'spline'
 
@@ -61,6 +70,9 @@ ready = ->
       'Foo'
       'Bar'
       'Baz'
+      'FooBar'
+      'BarFoo'
+      'BarBaz'
     ]).enter().append('li').attr('class', 'key', 'data-id', (id) ->
       id
     ).html((id) ->
