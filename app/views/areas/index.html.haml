@@ -1,4 +1,4 @@
-%h1 
+%h1
   Understand your
   = t('app.name')
 
@@ -15,14 +15,13 @@
 
   %section.half
     %h2 Find your area
-    %br/
     -# TODO: Replace with rails form!
     %form#area-finder
       %fieldset
         %legend Find an area
         = label_tag 'area'
         = text_field_tag 'area', nil, placeholder: 'e.g. Devon, Exeter', class: 'inline'
-        %input{ type: 'Submit', value: 'Search', class: 'inline' }
+        %input.inline{ type: 'Submit', value: 'Search' }
 
 .row
   %section.third.home-summary
@@ -38,7 +37,7 @@
     %article
       %p Is about bringing together relevant existing adult social care open data, including data released in phase one, to build a prototype that demonstrates some of the benefits that releasing this data might have for council commissioners, providers and the general public.
 
-%h2 What happened
+%h2.padded What happened
 
 %section.home-progress.clear
   %header.third
@@ -135,13 +134,13 @@
   %ul.third.highlighted.undecorated
     %p All of this data is published on data.gov.uk
     %li
-      %a{href: '#'}
+      %a{ href: '#' }
         Devon
     %li
-      %a{href: '#'}
+      %a{ href: '#' }
         Kingston
-    %li 
-      %a{href: '#'}
+    %li
+      %a{ href: '#' }
         Sutton
 
 %section.transparent#home-subfooter

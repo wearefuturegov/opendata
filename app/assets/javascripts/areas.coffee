@@ -1,8 +1,6 @@
 ready = ->
   # Load a url via AJAX
   loadAJAX = (chart, cards) ->
-    console.log(chart)
-    console.log(cards)
     $('#chart-container').load chart,(responseText, textStatus, XMLHttpRequest) ->
       if (textStatus == 'success')
         generateChart()
