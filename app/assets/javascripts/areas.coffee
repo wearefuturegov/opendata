@@ -10,34 +10,38 @@ ready = ->
       if (textStatus != 'success')
         console.log(textStatus)
 
+
   supertabs = $(".super-tab")
 
   firsttab = supertabs[0]
-  chart = firsttab.attributes[1].value
-  cards = firsttab.attributes[2].value
+
+  if supertabs.length
+    chart = firsttab.attributes[1].value
+    cards = firsttab.attributes[2].value
 
   # Load first tab by default
   loadAJAX(chart, cards)
 
   # On click toggle classes
-  supertabs.click ->
-    t = $(this)
+  if supertabs.length
+    supertabs.click ->
+      t = $(this)
 
-    # Don't run if already active
-    if (t.attr('class') != 'super-tab selected')
-      # Toggle classes
-      t.toggleClass('unselected')
-      t.toggleClass('selected')
+      # Don't run if already active
+      if (t.attr('class') != 'super-tab selected')
+        # Toggle classes
+        t.toggleClass('unselected')
+        t.toggleClass('selected')
 
-      # Deselect other tabs
-      t.siblings().addClass('unselected')
-      t.siblings().removeClass('selected')
+        # Deselect other tabs
+        t.siblings().addClass('unselected')
+        t.siblings().removeClass('selected')
 
-      chart = t[0].attributes[1].value
-      cards = t[0].attributes[2].value
+        chart = t[0].attributes[1].value
+        cards = t[0].attributes[2].value
 
-      # Load via ajax
-      loadAJAX(chart, cards)
+        # Load via ajax
+        loadAJAX(chart, cards)
 
   generateChart = ->
     # Render chart
