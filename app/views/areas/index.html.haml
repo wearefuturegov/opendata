@@ -1,6 +1,7 @@
-%h1
-  Understand your
-  = t('app.name')
+%header.hero-header
+  %h1.white
+    Understand your
+    = t('app.name')
 
 .row
   %section.half#area-list
@@ -23,19 +24,24 @@
         = text_field_tag 'area', nil, placeholder: 'e.g. Devon, Exeter', class: 'inline'
         %input.inline{ type: 'Submit', value: 'Search' }
 
+%h2.padded The Project
+
 .row
   %section.third.home-summary
+    = image_tag("ProjectBackground.jpg", alt: "Project background – Futuregov hackday")
     %h3 Background
     %article
-      %p This project was created in a funding challenge set by the Cabinet Office with the aim to help Councils release more adult social care data under the open data license.
+      %p This collaborative project between FutureGov, Devon Council and Kingston and Sutton Councils was funded by the Cabinet Office with the aim to encourage councils to release more adult social care open data, publish it to data.gov.uk and to demonstrate the benefits of this approach.
   %section.third.home-summary
+    = image_tag("ProjectFirstPhase.jpg", alt: 'The first phase - open data card game')
     %h3 The first phase
     %article
-      %p First we focussed on exploring the available data-sets and finding processes to open them up on a regular basis. You can find the relvant materials below.
+      %p Involved mapping existing data, identifying user needs and exploring what additional adult social care data could be released as open data regularly to data.gov.uk. Below you’ll find links to the data, design tools, a framework and guides for how the councils have released this data that you can reuse.
   %section.third.home-summary
+    = image_tag("ProjectSecondPhase.jpg", alt: "The second phase - Building a prototype app using discovered data")
     %h3 The second phase
     %article
-      %p Is about bringing together relevant existing adult social care open data, including data released in phase one, to build a prototype that demonstrates some of the benefits that releasing this data might have for council commissioners, providers and the general public.
+      %p Brings together relevant existing adult social care open data (including the data released in this project) into a prototype that demonstrates the benefits that releasing this data might have for council commissioners, providers and the general public.
 
 %h2.padded What happened
 
@@ -45,8 +51,7 @@
     %blockquote
       %h3 We created a game to explore how to combine data sets
   .third
-    To help think about different ways data sets could be used to meet needs we created a card game. Download the game, edit and re-use it to help think about data in different ways.
-
+    %p To help think about different ways data sets could be combined to meet user needs we created a card game. Download the game, edit and reuse it to help think about  the value of data sets in different ways.
   .third
     %ul.link-list
       -# TODO: Make these dynamic
@@ -67,7 +72,7 @@
     %blockquote
       %h3 We created user personas to help understand data needs
   .third
-    Working with commissioners and data owners we created light user personas to help us think through their needs in relation to adult social care data sets. Download our personas or use our template to create your own.
+    %p Working with council commissioners and data owners we created light user personas to help understand their needs and think about how using data differently might help. Download and reuse our personas or use our template to create your own.
   .third
     %ul.link-list
       -# TODO: Make these dynamic
@@ -88,7 +93,7 @@
     %blockquote
       %h3 We created data sharing agreements
   .third
-    We worked with the councils to create a light-process for sharing data and project documentation. We made use of collaborative tools like Google Drive to share data, making sure access rights were defined and setup at the beginning of the project. Download and re-use our data sharing agreement here.
+    %p We created a simple process for sharing data and project documentation. We’ve made use of collaborative tools like Google Drive to share data, making sure access rights were defined and setup at the beginning of the project.
   .third
     %ul.link-list
       -# TODO: Make these dynamic
@@ -109,7 +114,7 @@
     %blockquote
       %h3 Workshop materials
   .third
-    Co-design workshops helped us to think about why certain data sets should be prioritised for release. Find out how we structured our workshops with providers and commissioners.
+    %p Co-design workshops helped us to think about why certain data sets should be prioritised for release. Find out how we structured our workshops with providers and commissioners.
   .third
     %ul.link-list
       -# TODO: Make these dynamic
@@ -128,9 +133,9 @@
   %header.third
     .decorative-bg
     %blockquote
-      %h3 Final framework for releasing data
+      %h3 Final report for releasing data
   .third
-    Our final report sets out in detail all of the work that we have done with the councils and the data sets that they are releasing. Our intention is that this framework can be followed by other councils allowing them to release this data and more.
+    %p Our final report sets out in detail all of the work that we have done and more detail about the data sets that they are releasing. 
   %ul.third.highlighted.undecorated
     %p All of this data is published on data.gov.uk
     %li
@@ -142,6 +147,39 @@
     %li
       %a{ href: '#' }
         Sutton
+
+%section.home-progress.clear
+  %header.third
+    .decorative-bg
+    %blockquote
+      %h3 Framework for councils to do the same
+  .third
+    %p Devon Council has created this short framework to accompany the final report that sets out the process they’ve followed and adapted to release open data. Our intention is that together with the final report, this provides a framework that can be followed by other councils allowing them to release more data.
+  .third
+    %ul.link-list
+      -# TODO: Make these dynamic
+      %li
+        %a.document-link{ href: '#' }
+          %span.icon.icon-document-1
+          %span.document-type.pdf PDF
+          docname.pdf
+
+%section.home-progress.clear
+  %header.third
+    .decorative-bg
+    %blockquote
+      %h3 Local Care Market Demonstrator - Coming soon
+  .third
+    %p Council’s have an important role to understand and shape their local adult social care market and they have to create a market positioning statement. It’s a full time job to pull together relevant data from different external sources and internal systems, analyse it and keep it up to date.
+    %p Our prototype attempts to demonstrate how bringing together open adult social care data can make it easier for councils to quickly understand their local care market and could help create new opportunities for providers and give more choice to users through greater transparency.
+    %p Check out some of early sketches and wireframes as the prototype takes shape.
+  .third
+    %ul.link-list
+      %li
+        %a.document-link{ href: '#' }
+          %span.icon.icon-document-1
+          %span.document-type.pdf PDF
+          docname.pdf
 
 %section.transparent#home-subfooter
   = link_to "Got questions?", "#", class: 'large-link'

@@ -5,6 +5,19 @@
   background-color: $light-gray
   z-index: $back-z-index
 
+.hero-header
+  background-color: $primary
+  padding: $base-spacing
+  margin-bottom: $base-spacing
+
+  +media($medium-screen-up)
+    padding: $base-spacing * 2
+
+  h1
+    margin-bottom: 0
+    padding-left: 0
+    text-align: center
+
 .aside-header
   margin-bottom: $base-spacing * 2
   +media($large-screen-up)
