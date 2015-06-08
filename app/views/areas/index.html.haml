@@ -1,4 +1,4 @@
-%header.hero-header
+%header.hero-header.bright
   %h1.white
     Understand your
     = t('app.name')
@@ -6,16 +6,22 @@
 .row
   %section.half#area-list
     %h2
-      We are currently live in
+      We are preparing data in
       %em= @areas.count
       Areas
+    %small This prototype is currently in development, areas will go live soon.
+    %br/
     - if @areas.any?
       %ul.link-list
         - @areas.each do |area|
-          %li= link_to area.name, area_path(area)
+          - if Rails.env == 'production'
+            %li= link_to area.name, '#'
+          - else
+            %li= link_to area.name, area_path(area)
 
   %section.half
     %h2 Find your area
+    %small This prototype is currently in development, areas will go live soon.
     -# TODO: Replace with rails form!
     %form#area-finder
       %fieldset
@@ -24,7 +30,8 @@
         = text_field_tag 'area', nil, placeholder: 'e.g. Devon, Exeter', class: 'inline'
         %input.inline{ type: 'Submit', value: 'Search' }
 
-%h2.padded The Project
+%header.hero-header.subtle
+  %h1 The Project
 
 .row
   %section.third.home-summary
@@ -43,7 +50,8 @@
     %article
       %p Brings together relevant existing adult social care open data (including the data released in this project) into a prototype that demonstrates the benefits that releasing this data might have for council commissioners, providers and the general public.
 
-%h2.padded What happened
+%header.hero-header.subtle
+  %h1 What happened?
 
 %section.home-progress.clear
   %header.third
@@ -181,7 +189,7 @@
           %span.document-type.pdf PDF
           docname.pdf
 
-%section.transparent#home-subfooter
-  = link_to "Got questions?", "#", class: 'large-link'
-  = link_to "Want to use this data?", "#", class: 'large-link'
-  = link_to "Get in touch", "#", class: 'large-link'
+%footer.hero-footer.attention#home-subfooter
+  = link_to "Got questions?", "#", class: 'large-link white'
+  = link_to "Want to use this data?", "#", class: 'large-link white'
+  = link_to "Get in touch", "#", class: 'large-link white'

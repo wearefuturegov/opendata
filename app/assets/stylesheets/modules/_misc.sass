@@ -5,10 +5,18 @@
   background-color: $light-gray
   z-index: $back-z-index
 
-.hero-header
-  background-color: $primary
+.hero-header,
+.hero-footer
+  background-color: $secondary
   padding: $base-spacing
   margin-bottom: $base-spacing
+
+  &.bright
+    background-color: $secondary
+  &.subtle
+    background-color: $light-gray
+  &.attention
+    background-color: $action-color
 
   +media($medium-screen-up)
     padding: $base-spacing * 2

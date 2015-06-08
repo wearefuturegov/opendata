@@ -6,6 +6,9 @@ body
   font-size: $base-font-size
   line-height: $base-line-height
 
+.white
+  color: $white
+
 h1,
 h2,
 h3,
@@ -16,10 +19,10 @@ h6
   font-size: $base-font-size
   line-height: $heading-line-height
   margin: 0 0 $small-spacing
-  &.white
-    color: $white
   &.inline
     display: inline-block
+  &.colorful
+    color: darken($secondary, 5%)
 
 h3,
 h4,
