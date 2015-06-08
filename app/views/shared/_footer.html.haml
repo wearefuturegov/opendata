@@ -1,23 +1,24 @@
 %footer.site-footer
-  .footer-section
-    %h4 Open Data License
-    %p The information provided is published under the open government license and can be downloaded in a .CSV format.
-  .footer-section
-    %h4 Related
-    %ul.undecorated
-      %p You can explore more data on:
-      %li
-        %a{href: "http://www.ons.gov.uk/"}
-          ONS.gov.uk
-      %li 
-        %a{href:"http://data.gov.uk/"}
-          DATA.gov.uk
-  .footer-section.clear
-    %h4 About This Project
-    .half
-      %h5 Funded by
-      = image_tag("cabinet_office.png", id: 'cabinet-logo')
-    .half
-      %h5 Created by
-      = image_tag("futuregov.png", id: 'futuregov-logo')
-      = image_tag("devon_cc.png", id: 'devon-logo')
+  #site-footer-wrapper
+    .footer-section
+      %h4 Open Data License
+      %p The information provided is published under the open government license and can be downloaded in a .CSV format.
+    .footer-section
+      %h4 Related
+      %ul.undecorated
+        %p You can explore more data on:
+        %li
+          %a{href: "http://www.ons.gov.uk/"}
+            ONS.gov.uk
+        %li 
+          %a{href:"http://data.gov.uk/"}
+            DATA.gov.uk
+    .footer-section.clear
+      %h4 About This Project
+      .half
+        %h5 Funded by
+        = image_tag("cabinet_office.png", id: 'cabinet-logo')
+      .half
+        %h5 Created by
+        = image_tag("futuregov.png", id: 'futuregov-logo')
+        = image_tag("devon_cc.png", id: 'devon-logo')
