@@ -1,8 +1,10 @@
 #area-list
   .link-list
     margin-bottom: 0
+
   +media($medium-screen-up)
     min-height: 22.5em
+
   +media($large-screen-up)
     min-height: 0
 
@@ -11,14 +13,17 @@
     +media($large-screen-up)
       width: 70%
       margin-bottom: 0
+
   input[type=submit]
     width: 100%
     +media($large-screen-up)
       width: initial
+
   +media($medium-screen-up)
     padding: $base-spacing
     background-color: $light-gray
-    margin-top: $base-spacing * 2
+    margin-top: $medium-spacing
+
   +media($large-screen-up)
     margin-top: 3.3em
 
@@ -32,24 +37,32 @@
   +media($medium-screen-up)
     img
       +span-columns(6 of 12)
+
   +media($medium-large-screen-up)
     img
       +span-columns(12 of 12)
+
     &:first-of-type,
     &:nth-of-type(2)
       +span-columns(6 of 12)
       min-height: 13em
+
     &:nth-of-type(2)
       +omega
+
     &:last-of-type
       +span-columns(12 of 12)
       img
         +span-columns(6 of 12)
         float: left
+
   +media($large-screen-up)
+    min-height: 35em !important
+    max-height: 35em
+
     img
-      +span-columns(12 of 12)
       float: none
+
     &:first-of-type,
     &:nth-of-type(2),
     &:last-of-type
@@ -57,8 +70,6 @@
       img
         +span-columns(12 of 12)
         float: none
-    min-height: 35em !important
-    max-height: 35em
 
 .home-progress
   position: relative
@@ -72,11 +83,6 @@
       float: right
     +media($large-screen-up)
       +span-columns(12 of 12)
-
-  blockquote
-    position: relative
-    z-index: $middle-z-index
-    padding-left: 0
 
   header
     padding: $base-spacing 0
