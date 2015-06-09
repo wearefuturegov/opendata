@@ -22,6 +22,9 @@
   +media($large-screen-up)
     margin-top: 3.3em
 
+#home-introduction
+  padding-top: $medium-spacing
+
 .home-summary
   img
     margin-bottom: $base-spacing
@@ -61,37 +64,40 @@
   position: relative
   min-height: 200px
 
+  article
+    +span-columns(8 of 8)
+    +media($medium-large-screen-up)
+      +span-columns(7 of 12)
+      margin-top: 0
+      float: right
+    +media($large-screen-up)
+      +span-columns(12 of 12)
+
   blockquote
     position: relative
     z-index: $middle-z-index
     padding-left: 0
 
-  .third
-    position: relative
-
   header
-    margin-top: -24px
-    margin-bottom: -24px
     padding: $base-spacing 0
-    +media($large-screen-up)
+    +media($medium-large-screen-up)
+      +span-columns(4 of 12)
+      margin-top: -24px
+      margin-bottom: -24px
       position: absolute !important
       height: 100%
-
-  div.third
-    &:nth-of-type(1)
-      margin-top: $base-spacing * 2
-      margin-bottom: $base-spacing
-      +media($large-screen-up)
-        +shift(4)
+    +media($large-screen-up)
+      +span-columns(12 of 12)
+      position: static !important
+      margin-bottom: 0px
 
   .highlighted
     padding: $base-spacing
 
   +media($large-screen-up)
-    div.third
-      &:nth-of-type(1)
-        margin-top: 1em
-        margin-bottom: 0
+    +span-columns(6 of 12)
+    +omega(2n)
+    min-height: 22em
 
 #home-subfooter
   text-align: center

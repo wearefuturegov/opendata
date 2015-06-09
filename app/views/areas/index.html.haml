@@ -14,10 +14,7 @@
     - if @areas.any?
       %ul.link-list
         - @areas.each do |area|
-          - if Rails.env == 'production'
-            %li= link_to area.name, '#'
-          - else
-            %li= link_to area.name, area_path(area)
+          %li= link_to area.name, area_path(area)
 
   %section.half
     %h2 Find your area
@@ -29,6 +26,21 @@
         = label_tag 'area'
         = text_field_tag 'area', nil, placeholder: 'e.g. Devon, Exeter', class: 'inline'
         %input.inline{ type: 'Submit', value: 'Search' }
+
+%section.clear#home-introduction
+  %header.third
+    %h2 Local Care Market Demonstrator
+    %h3.colorful Coming Soon
+  .third
+    %p
+      %em Council’s have an important role to understand and shape their local adult social care market and they have to create a market positioning statement. It’s a full time job to pull together relevant data from different external sources and internal systems, analyse it and keep it up to date.
+    %p Our prototype attempts to demonstrate how bringing together open adult social care data can make it easier for councils to quickly understand their local care market and could help create new opportunities for providers and give more choice to users through greater transparency.
+    %p Check out some of early sketches and wireframes as the prototype takes shape.
+  .third
+    = image_tag("#", class: 'quarter')
+    = image_tag("#", class: 'quarter')
+    = image_tag("#", class: 'quarter')
+    = image_tag("#", class: 'quarter')
 
 %header.hero-header.subtle
   %h1 The Project
@@ -53,141 +65,108 @@
 %header.hero-header.subtle
   %h1 What happened?
 
-%section.home-progress.clear
-  %header.third
-    .decorative-bg
-    %blockquote
+.row
+  %section.home-progress.clear
+    %header
       %h3 We created a game to explore how to combine data sets
-  .third
-    %p To help think about different ways data sets could be combined to meet user needs we created a card game. Download the game, edit and reuse it to help think about  the value of data sets in different ways.
-  .third
-    %ul.link-list
-      -# TODO: Make these dynamic
-      %li
-        %a.document-link{ href: '#' }
-          %span.icon.icon-document-1
-          %span.document-type.pdf PDF
-          document_name.pdf
-      %li
-        %a.document-link{ href: '#' }
-          %span.icon.icon-document-1
-          %span.document-type.doc DOC
-          important.doc
+    %article
+      %p To help think about different ways data sets could be combined to meet user needs we created a card game. Download the game, edit and reuse it to help think about  the value of data sets in different ways.
+      %ul.link-list
+        -# TODO: Make these dynamic
+        %li
+          %a.document-link{ href: '#' }
+            %span.icon.icon-document-1
+            %span.document-type.pdf PDF
+            document_name.pdf
+        %li
+          %a.document-link{ href: '#' }
+            %span.icon.icon-document-1
+            %span.document-type.doc DOC
+            important.doc
 
-%section.home-progress.clear
-  %header.third
-    .decorative-bg
-    %blockquote
+  %section.home-progress.clear
+    %header
       %h3 We created user personas to help understand data needs
-  .third
-    %p Working with council commissioners and data owners we created light user personas to help understand their needs and think about how using data differently might help. Download and reuse our personas or use our template to create your own.
-  .third
-    %ul.link-list
-      -# TODO: Make these dynamic
-      %li
-        %a.document-link{ href: '#' }
-          %span.icon.icon-document-1
-          %span.document-type.pdf PDF
-          document_name.pdf
-      %li
-        %a.document-link{ href: '#' }
-          %span.icon.icon-document-1
-          %span.document-type.doc DOC
-          important.doc
+    %article
+      %p Working with council commissioners and data owners we created light user personas to help understand their needs and think about how using data differently might help. Download and reuse our personas or use our template to create your own.
+      %ul.link-list
+        -# TODO: Make these dynamic
+        %li
+          %a.document-link{ href: '#' }
+            %span.icon.icon-document-1
+            %span.document-type.pdf PDF
+            document_name.pdf
+        %li
+          %a.document-link{ href: '#' }
+            %span.icon.icon-document-1
+            %span.document-type.doc DOC
+            important.doc
 
-%section.home-progress.clear
-  %header.third
-    .decorative-bg
-    %blockquote
+  %section.home-progress.clear
+    %header
       %h3 We created data sharing agreements
-  .third
-    %p We created a simple process for sharing data and project documentation. We’ve made use of collaborative tools like Google Drive to share data, making sure access rights were defined and setup at the beginning of the project.
-  .third
-    %ul.link-list
-      -# TODO: Make these dynamic
-      %li
-        %a.document-link{ href: '#' }
-          %span.icon.icon-document-1
-          %span.document-type.pdf PDF
-          document_name.pdf
-      %li
-        %a.document-link{ href: '#' }
-          %span.icon.icon-document-1
-          %span.document-type.doc DOC
-          important.doc
+    %article
+      %p We created a simple process for sharing data and project documentation. We’ve made use of collaborative tools like Google Drive to share data, making sure access rights were defined and setup at the beginning of the project.
+      %ul.link-list
+        -# TODO: Make these dynamic
+        %li
+          %a.document-link{ href: '#' }
+            %span.icon.icon-document-1
+            %span.document-type.pdf PDF
+            document_name.pdf
+        %li
+          %a.document-link{ href: '#' }
+            %span.icon.icon-document-1
+            %span.document-type.doc DOC
+            important.doc
 
-%section.home-progress.clear
-  %header.third
-    .decorative-bg
-    %blockquote
+  %section.home-progress.clear
+    %header
       %h3 Workshop materials
-  .third
-    %p Co-design workshops helped us to think about why certain data sets should be prioritised for release. Find out how we structured our workshops with providers and commissioners.
-  .third
-    %ul.link-list
-      -# TODO: Make these dynamic
-      %li
-        %a.document-link{ href: '#' }
-          %span.icon.icon-document-1
-          %span.document-type.pdf PDF
-          document_name.pdf
-      %li
-        %a.document-link{ href: '#' }
-          %span.icon.icon-document-1
-          %span.document-type.doc DOC
-          important.doc
+    %article
+      %p Co-design workshops helped us to think about why certain data sets should be prioritised for release. Find out how we structured our workshops with providers and commissioners.
+      %ul.link-list
+        -# TODO: Make these dynamic
+        %li
+          %a.document-link{ href: '#' }
+            %span.icon.icon-document-1
+            %span.document-type.pdf PDF
+            document_name.pdf
+        %li
+          %a.document-link{ href: '#' }
+            %span.icon.icon-document-1
+            %span.document-type.doc DOC
+            important.doc
 
-%section.home-progress.clear
-  %header.third
-    .decorative-bg
-    %blockquote
+  %section.home-progress.clear
+    %header
       %h3 Final report for releasing data
-  .third
-    %p Our final report sets out in detail all of the work that we have done and more detail about the data sets that they are releasing. 
-  %ul.third.highlighted.undecorated
-    %p All of this data is published on data.gov.uk
-    %li
-      %a{ href: '#' }
-        Devon
-    %li
-      %a{ href: '#' }
-        Kingston
-    %li
-      %a{ href: '#' }
-        Sutton
+    %article
+      %p Our final report sets out in detail all of the work that we have done and more detail about the data sets that they are releasing.
+      %ul.highlighted.undecorated
+        %p All of this data is published on data.gov.uk
+        %li
+          %a{ href: '#' }
+            Devon
+        %li
+          %a{ href: '#' }
+            Kingston
+        %li
+          %a{ href: '#' }
+            Sutton
 
-%section.home-progress.clear
-  %header.third
-    .decorative-bg
-    %blockquote
+  %section.home-progress.clear
+    %header
       %h3 Framework for councils to do the same
-  .third
-    %p Devon Council has created this short framework to accompany the final report that sets out the process they’ve followed and adapted to release open data. Our intention is that together with the final report, this provides a framework that can be followed by other councils allowing them to release more data.
-  .third
-    %ul.link-list
-      -# TODO: Make these dynamic
-      %li
-        %a.document-link{ href: '#' }
-          %span.icon.icon-document-1
-          %span.document-type.pdf PDF
-          docname.pdf
-
-%section.home-progress.clear
-  %header.third
-    .decorative-bg
-    %blockquote
-      %h3 Local Care Market Demonstrator - Coming soon
-  .third
-    %p Council’s have an important role to understand and shape their local adult social care market and they have to create a market positioning statement. It’s a full time job to pull together relevant data from different external sources and internal systems, analyse it and keep it up to date.
-    %p Our prototype attempts to demonstrate how bringing together open adult social care data can make it easier for councils to quickly understand their local care market and could help create new opportunities for providers and give more choice to users through greater transparency.
-    %p Check out some of early sketches and wireframes as the prototype takes shape.
-  .third
-    %ul.link-list
-      %li
-        %a.document-link{ href: '#' }
-          %span.icon.icon-document-1
-          %span.document-type.pdf PDF
-          docname.pdf
+    %article
+      %p Devon Council has created this short framework to accompany the final report that sets out the process they’ve followed and adapted to release open data. Our intention is that together with the final report, this provides a framework that can be followed by other councils allowing them to release more data.
+      %ul.link-list
+        -# TODO: Make these dynamic
+        %li
+          %a.document-link{ href: '#' }
+            %span.icon.icon-document-1
+            %span.document-type.pdf PDF
+            docname.pdf
 
 %footer.hero-footer.attention#home-subfooter
   = link_to "Got questions?", "#", class: 'large-link white'
