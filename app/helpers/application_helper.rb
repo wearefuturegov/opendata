@@ -4,6 +4,7 @@ module ApplicationHelper
   def static_file(url)
     # Filename (inc. extension)
     filename = url.rpartition('/').last
+    noExt = filename.to_s.rpartition('.').first
     # File extension
     extension = filename.to_s.rpartition('.').last
 
@@ -15,6 +16,6 @@ module ApplicationHelper
         concat content_tag(:span, extension.upcase, class: 'document-type ' + extension)
         concat filename
       end
-    end
+    end + image_tag(noExt + "_preview.png", class: 'document-preview')
   end
 end

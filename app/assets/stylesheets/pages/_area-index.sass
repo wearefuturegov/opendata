@@ -79,6 +79,11 @@
   min-height: 200px
 
   article
+    .link-list
+      margin-top: 2em
+      li
+        display: table
+        width: 100%
     +span-columns(8 of 8)
     +media($medium-large-screen-up)
       +span-columns(7 of 12)
@@ -106,7 +111,7 @@
   +media($large-screen-up)
     +span-columns(6 of 12)
     +omega(2n)
-    min-height: 19em
+    min-height: 24em
 
 #home-subfooter
   text-align: center

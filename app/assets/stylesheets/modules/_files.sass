@@ -1,6 +1,8 @@
 .document-link
   text-decoration: none
   font-size: 1em !important
+  display: table-cell
+  vertical-align: middle
 
 .document-type
   font-family: $mono-font-family
@@ -12,3 +14,8 @@
     color: darken($doc-pdf, 10%)
   &.docx
     color: darken($doc-doc, 10%)
+
+.document-preview
+  width: 100px
+  float: right
+  margin-left: $base-spacing
