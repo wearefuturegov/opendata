@@ -23,18 +23,34 @@
     &:last-of-type
       border: 0
 
-#cabinet-logo,
-#futuregov-logo,
-#devon-logo
+#cabinet-logo
   width: 30%
 
-#cabinet-logo
+#devon-logo
+  width: 20%
+
+#kingston-logo,
+#sutton-logo
+  width: 10%
+  margin-right: $small-spacing
+
+#futuregov-logo
+  width: 30%
+  display: block
+#kingston-logo
+  margin-right: 0
+
+#cabinet-logo,
+#futuregov-logo
   +media($medium-screen-up)
     width: 70%
 #futuregov-logo
   +media($medium-screen-up)
-    width: 70%
     margin-bottom: $small-spacing
 #devon-logo
   +media($medium-screen-up)
-    width: 50%
+    width: 40%
+#kingston-logo,
+#sutton-logo
+  +media($medium-screen-up)
+    width: 20%
