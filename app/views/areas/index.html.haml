@@ -37,10 +37,14 @@
     %p Our prototype attempts to demonstrate how bringing together open adult social care data can make it easier for councils to quickly understand their local care market and could help create new opportunities for providers and give more choice to users through greater transparency.
     %p Check out some of early sketches and wireframes as the prototype takes shape.
   .third
-    = image_tag("#", class: 'quarter')
-    = image_tag("#", class: 'quarter')
-    = image_tag("#", class: 'quarter')
-    = image_tag("#", class: 'quarter')
+    = link_to image_path("wireframe_1_full.png"), class: 'quarter' do
+      = image_tag("wireframe_1.png", alt: 'Open Data prototype wireframe')
+    = link_to image_path("wireframe_2_full.png"), class: 'quarter' do
+      = image_tag("wireframe_2.png", alt: 'Open Data prototype wireframe')
+    = link_to image_path("mockup_1_full.png"), class: 'quarter' do
+      = image_tag("mockup_1.png", alt: 'Open Data prototype mockup')
+    = link_to image_path("mockup_2_full.png"), class: 'quarter' do
+      = image_tag("mockup_2.png", alt: 'Open Data prototype mockup')
 
 %header.hero-header.subtle
   %h1 The Project
