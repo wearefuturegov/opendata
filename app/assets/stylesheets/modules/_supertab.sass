@@ -16,7 +16,6 @@
 
 .super-tab-wrapper
   position: relative
-
   +media($medium-screen-up)
     +span-columns(12 of 12)
     margin: 0 3px 0 0
@@ -34,25 +33,13 @@
   cursor: pointer
   padding: .5em
 
-  a
-    text-decoration: none
-  a *
-    color: $base-font-color
-    text-decoration: none
-
   header
-    height: 80px
-    background-color: $white
-    padding-left: $small-spacing
     line-height: 80px
 
     h3
       line-height: normal
       display: inline-block
       font-size: 1em
-      a
-        color: $base-font-color
-        text-decoration: none
       +media($medium-screen-up)
         font-size: 1.2em
 
@@ -64,10 +51,6 @@
     padding: $small-spacing $base-spacing
     +media($medium-screen-up)
       padding: $base-spacing
-
-  p
-    float: left
-    margin-right: $base-spacing
 
   &:first-of-type
     border-top-left-radius: $base-border-radius
@@ -138,6 +121,7 @@
 
 .super-tab-trend
   float: left
+
   .stat-value
     margin-bottom: 0
   .stat-value, p
