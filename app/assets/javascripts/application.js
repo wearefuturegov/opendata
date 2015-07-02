@@ -18,4 +18,3 @@
 //= require c3
 //= require notices.coffee
 //= require areas.coffee
-

@@ -1,12 +1,10 @@
 %section.clear#home-introduction
   %header.third
     %h2 Local Care Market Demonstrator
-    %h3.colorful Coming Soon
   .third
     %p
       %em Council’s have an important role to understand and shape their local adult social care market and they have to create a market positioning statement. It’s a full time job to pull together relevant data from different external sources and internal systems, analyse it and keep it up to date.
     %p Our prototype attempts to demonstrate how bringing together open adult social care data can make it easier for councils to quickly understand their local care market and could help create new opportunities for providers and give more choice to users through greater transparency.
-    %p Check out some of early sketches and wireframes as the prototype takes shape.
   .third
     = link_to image_path("wireframe_1_full.png"), class: 'quarter' do
       = image_tag("wireframe_1.png", alt: 'Open Data prototype wireframe')
@@ -19,30 +17,27 @@
 
   .clear
 
-.row
-  %section#area-list
+%section.clear#home-introduction
+  %header.third
     %h2
-      We are preparing data in
-      %em= @areas.count
-      Areas
+      We're live in Devon, with more areas coming soon
+  .two_thirds
+    
     - if @areas.any?
       %ul.link-list
         - @areas.each do |area|
-          %li= link_to area.name, area_path(area)
-
-  /section.half
-  / %h2 Find your area
-  / %small.bright This prototype is currently in development, areas will go live soon.
-  / %form#area-finder
-  /   %fieldset
-  /     %legend Find an area
-  /     = label_tag 'area'
-  /     = text_field_tag 'area', nil, placeholder: 'e.g. Devon, Exeter', class: 'inline'
-  /     %input.inline{ type: 'Submit', value: 'Search' }
-
+          -if area.live?
+            %li
+              = area.name
+              = link_to "View live prototype", area_path(area)
+          -else
+            %li
+              =area.name
+              %em
+                (data being prepared)
 
 %header.hero-header.subtle
-  %h1 The Project
+  %h1 About the project
 
 .row
   %section.third.home-summary
@@ -62,7 +57,8 @@
       %p Brings together relevant existing adult social care open data (including the data released in this project) into a prototype that demonstrates the benefits that releasing this data might have for council commissioners, providers and the general public.
 
 %header.hero-header.subtle
-  %h1 Opening the design process
+  %h1 An open design process
+  %p Open data, open design process. Along with opening new datasets, we've released a number of tools and guides which we used during the project.
 
 .row
   %section.home-progress.half.clear
@@ -112,7 +108,6 @@
       %ul.link-list
         %li= static_file('Open data framework','files/Open_Data_Publishing-Framework.pdf')
 
-%footer.hero-footer.attention#home-subfooter
-  = link_to "Got questions?", "#", class: 'large-link white'
-  = link_to "Want to use this data?", "#", class: 'large-link white'
-  = link_to "Get in touch", "#", class: 'large-link white'
+%footer.hero-footer.subtle#home-subfooter
+  %h3 Like to know more about the project?
+  = mail_to "matt@wearefuturegov.com", "Get in touch", class: 'large-link'
