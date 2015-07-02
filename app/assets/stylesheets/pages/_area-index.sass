@@ -4,7 +4,6 @@
 
   +media($medium-screen-up)
     min-height: 22.5em
-
   +media($large-screen-up)
     min-height: 0
 
@@ -30,21 +29,15 @@
 #home-introduction
   padding-top: $medium-spacing
 
-  .third:last-of-type
-    +omega
-
 .home-summary
   img
     margin-bottom: $base-spacing
-
-  +media($medium-screen-up)
-    img
+    +media($medium-screen-up)
       +span-columns(6 of 12)
-
-  +media($medium-large-screen-up)
-    img
+    +media($medium-large-screen-up)
       +span-columns(12 of 12)
 
+  +media($medium-large-screen-up)
     &:first-of-type,
     &:nth-of-type(2)
       +span-columns(6 of 12)
@@ -57,34 +50,36 @@
       +span-columns(12 of 12)
       img
         +span-columns(6 of 12)
-        float: left
 
   +media($large-screen-up)
     min-height: 35em !important
     max-height: 35em
 
-    img
-      float: none
-
     &:first-of-type,
     &:nth-of-type(2),
     &:last-of-type
       +span-columns(4 of 12)
+
+    &:last-of-type
       img
         +span-columns(12 of 12)
-        float: none
 
 .home-progress
-  position: relative
   min-height: 200px
 
+  +media($medium-large-screen-up)
+    +span-columns(12 of 12)
+  +media($large-screen-up)
+    +span-columns(6 of 12)
+    min-height: 420px
+
   article
+    +span-columns(8 of 8)
     .link-list
       margin-top: 2em
       li
         display: table
         width: 100%
-    +span-columns(8 of 8)
     +media($medium-large-screen-up)
       +span-columns(7 of 12)
       margin-top: 0
@@ -93,30 +88,8 @@
       +span-columns(12 of 12)
 
   header
-    padding: $base-spacing 0
     +media($medium-large-screen-up)
       +span-columns(4 of 12)
-      margin-top: -24px
-      margin-bottom: -24px
-      position: absolute !important
-      height: 100%
     +media($large-screen-up)
       +span-columns(12 of 12)
-      position: static !important
-      margin-bottom: 0px
-
-  .highlighted
-    padding: $base-spacing
-
-  +media($large-screen-up)
-    +span-columns(6 of 12)
-    +omega(2n)
-    min-height: 24em
-
-#home-subfooter
-  text-align: center
-  a
-    margin-right: $base-spacing
-    &:last-of-type
-      margin-right: 0
-
+      padding: $base-spacing 0

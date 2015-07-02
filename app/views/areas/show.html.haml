@@ -4,16 +4,24 @@
     .highlighted
       %h4 Total Population
     %div
-      %span XX.X% Female
+      %span 
+        = gender_percentage(@area, @area.total_population_female)
+        Female
       %br/
-      %small XXX,XXX people
+      %small
+        = number_with_delimiter(@area.total_population_female)
+        people
     %div
-      %span XX.X% Male
+      %span
+        = gender_percentage(@area, @area.total_population_male)
+        Male
       %br/
-      %small XXX,XXX people
+      %small
+        = number_with_delimiter(@area.total_population_male)
+        people
     %span.clear
 
-%section.chart-wrapper
+%section.chart-wrapper.container
   %nav.super-tab-wrapper
     - if @area.audiences.any?
       - @area.audiences.each_with_index do |audience, index|
@@ -23,7 +31,7 @@
         .super-tab{ id: "tab-" + (index + 1).to_s,
           class: (index == 0 ? "selected" : "unselected"),
           data: { ajax_chart: area_audience_path(@area, audience), ajax_details: breakdown_audience_path(audience.id) } }
-          %header
+          %header.chart-header
             %h3= audience.title
           %article
             %p
@@ -40,9 +48,9 @@
 
     %section.super-tab-info.clear
 
-  %section#chart-container
+  %section.container#chart-container
     -# Will be rendered via AJAX (areas.coffee)
-  %aside#spotlight-container
+  %aside.container#spotlight-container
     = render 'audiences/spotlight'
 
 
@@ -50,5 +58,5 @@
   Public funding for care in
   = @area.name
 
-%section.transparent#card-wrapper
+%section.transparent.container#card-wrapper
   -# Will be rendered via AJAX (areas.coffee)

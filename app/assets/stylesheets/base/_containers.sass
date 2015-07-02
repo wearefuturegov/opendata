@@ -15,16 +15,21 @@ aside
   +pad($base-spacing)
   margin-bottom: $base-spacing
 
+.container
+  padding: 0
+
 .row
   +row
 
 .half
-  +media($medium-screen-up)
+  +media($medium-large-screen-up)
     +span-columns(6 of 12)
+    +omega(2n)
 
 .third
   +media($medium-large-screen-up)
     +span-columns(4 of 12)
+    +omega(3n)
 
 .dark
   background-color: $black
