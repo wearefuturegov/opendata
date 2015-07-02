@@ -1,32 +1,3 @@
-%header.hero-header.bright
-  %h1.white
-    Understand your
-    = t('app.name')
-
-.row
-  %section.half#area-list
-    %h2
-      We are preparing data in
-      %em= @areas.count
-      Areas
-    %small.bright This prototype is currently in development, areas will go live soon.
-    %br/
-    - if @areas.any?
-      %ul.link-list
-        - @areas.each do |area|
-          %li= link_to area.name, area_path(area)
-
-  %section.half
-    %h2 Find your area
-    %small.bright This prototype is currently in development, areas will go live soon.
-    -# TODO: Replace with rails form!
-    %form#area-finder
-      %fieldset
-        %legend Find an area
-        = label_tag 'area'
-        = text_field_tag 'area', nil, placeholder: 'e.g. Devon, Exeter', class: 'inline'
-        %input.inline{ type: 'Submit', value: 'Search' }
-
 %section.clear#home-introduction
   %header.third
     %h2 Local Care Market Demonstrator
@@ -47,6 +18,28 @@
       = image_tag("mockup_2.png", alt: 'Open Data prototype mockup')
 
   .clear
+
+.row
+  %section#area-list
+    %h2
+      We are preparing data in
+      %em= @areas.count
+      Areas
+    - if @areas.any?
+      %ul.link-list
+        - @areas.each do |area|
+          %li= link_to area.name, area_path(area)
+
+  /section.half
+  / %h2 Find your area
+  / %small.bright This prototype is currently in development, areas will go live soon.
+  / %form#area-finder
+  /   %fieldset
+  /     %legend Find an area
+  /     = label_tag 'area'
+  /     = text_field_tag 'area', nil, placeholder: 'e.g. Devon, Exeter', class: 'inline'
+  /     %input.inline{ type: 'Submit', value: 'Search' }
+
 
 %header.hero-header.subtle
   %h1 The Project
@@ -69,56 +62,55 @@
       %p Brings together relevant existing adult social care open data (including the data released in this project) into a prototype that demonstrates the benefits that releasing this data might have for council commissioners, providers and the general public.
 
 %header.hero-header.subtle
-  %h1 What happened?
+  %h1 Opening the design process
 
 .row
   %section.home-progress.clear
     %header
-      %h3 We created a game to explore how to combine data sets
-    %article
-      %p To help think about different ways data sets could be combined to meet user needs we created a card game. Download the game, edit and reuse it to help think about  the value of data sets in different ways.
-      %ul.link-list
-        %li= static_file('files/Open_Data_Card-Game.pdf')
-
-  %section.home-progress.clear
-    %header
-      %h3 We created user personas to help understand data needs
+      %h3 User personas to help understand data needs
     %article
       %p Working with council commissioners and data owners we created light user personas to help understand their needs and think about how using data differently might help. Download and reuse our personas or use our template to create your own.
       %ul.link-list
-        %li= static_file('files/Open_Data_User-Cards.pdf')
-
+        %li= static_file('Personas', 'files/Open_Data_User-Cards.pdf')
+        
   %section.home-progress.clear
     %header
-      %h3 We created data sharing agreements
-    %article
-      %p We created a simple process for sharing data and project documentation. We’ve made use of collaborative tools like Google Drive to share data, making sure access rights were defined and setup at the beginning of the project.
-      %ul.link-list
-        %li= static_file('files/Open_Data_Agreement-Template.docx')
-
-  %section.home-progress.clear
-    %header
-      %h3 Workshop materials
+      %h3 Open data co-design workshop materials
     %article
       %p Co-design workshops helped us to think about why certain data sets should be prioritised for release. Find out how we structured our workshops with providers and commissioners.
       %ul.link-list
-        %li= static_file('files/Open_Data_Workshop-Materials.pdf')
+        %li= static_file('Workshop materials','files/Open_Data_Workshop-Materials.pdf')
 
   %section.home-progress.clear
     %header
-      %h3 Final report for releasing data
+      %h3 A tool to explore how to combine data sets
+    %article
+      %p To help think about different ways data sets could be combined to meet user needs we created a card game. Download the game, edit and reuse it to help think about the value of data sets in different ways.
+      %ul.link-list
+        %li= static_file('Open data card game','files/Open_Data_Card-Game.pdf')
+   
+  %section.home-progress.clear
+    %header
+      %h3 Data sharing agreement templates
+    %article
+      %p We created a simple process for sharing data and project documentation. We’ve made use of collaborative tools like Google Drive to share data, making sure access rights were defined and setup at the beginning of the project.
+      %ul.link-list
+        %li= static_file('Data sharing agreements','files/Open_Data_Agreement-Template.docx')
+  %section.home-progress.clear
+    %header
+      %h3 Final project report
     %article
       %p Our final report sets out in detail all of the work that we have done and more detail about the data sets that they are releasing.
       %ul.link-list
-        %li= static_file('files/Open_Data_Final-Report.pdf')
+        %li= static_file('Final report','files/Open_Data_Final-Report.pdf')
 
   %section.home-progress.clear
     %header
-      %h3 Framework for councils to do the same
+      %h3 Open data framework
     %article
       %p Devon Council has created this short framework to accompany the final report that sets out the process they’ve followed and adapted to release open data. Our intention is that together with the final report, this provides a framework that can be followed by other councils allowing them to release more data.
       %ul.link-list
-        %li= static_file('files/Open_Data_Publishing-Framework.pdf')
+        %li= static_file('Open data framework','files/Open_Data_Publishing-Framework.pdf')
 
 %footer.hero-footer.attention#home-subfooter
   = link_to "Got questions?", "#", class: 'large-link white'
