@@ -1,0 +1,34 @@
+Market Town OP Nursing Care Home Demand Model,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+,Current Supply,,,,,,Current Demand,,,,,,,,,,,Supply Modelling,,,,,,,Estimated Projected Demand in DCC Permanent Social Care Placements - No Action,,,,
+Market Town,Number of nursing care homes,Total registered care beds (all external),Number of dementia and other registered homes,Total registered care beds in dementia and other registered homes,Number of dementia only registered homes,Total registered care beds in dementia only registered homes,DCC permanent social care placements (incl social care joint funded),CHC and other health placements (not incl health joint funded),Joint funded placements (for info),DCC short term/respite care placements (not incl in est total demand),NHS Devon - Pts on GP Register in Care Home,Estimated total demand,Estimated external demand (self-funders / OLA placements),Estimated number of vacancies,Estimated occupancy %,Number of current placements (GP data) on dementia register,Estimated % of dementia clients (total demand),"Total registered care beds (all external), based on 95% availability",Option 1: Total registered care beds - excluding less compliant homes,"Option 1: Total registered care beds - excluding less compliant homes, based on 95% availability",Option 2: Total registered care beds - excluding homes DCC don't have current placements,"Option 2: Total registered care beds - excluding homes DCC don't have current placements, based on 95% availability",Cumulative: Total registered care beds - options 1 & 2 combined,"Cumulative: Total registered care beds - options 1 & 2 combined, based on 95% availability",2014,2015,2016,2017,2018
+Ashburton/Buckfastleigh,1,42,1,42,,,15,8,,,24,24,8,18,57%,10,42%,40,,,,0,,,15,16,16,16,17
+Axminster,2,91,2,91,,,14,10,8,,50,57,33,34,63%,22,44%,86,,0,,0,,0,14,15,15,15,16
+Barnstaple,3,124,,,2,64,30,23,,,97,97,44,27,78%,48,49%,118,,0,,0,,0,31,31,32,33,33
+Bideford/Northam,2,87,,,,,17,8,,,71,71,50,16,82%,27,38%,83,,0,,0,,0,17,18,18,18,19
+Braunton,3,150,1,58,,,42,43,8,8,111,111,26,39,74%,51,46%,143,,0,,0,,0,43,44,44,46,47
+Crediton,1,35,,,1,35,20,14,8,,39,39,8,-4,111%,12,31%,33,,0,,0,,0,20,21,21,22,22
+Cullompton,1,56,,,,,16,8,,,30,30,9,26,54%,8,27%,53,,0,,0,,0,16,17,17,17,18
+Dartmouth,1,80,1,80,,,8,8,,,11,11,0,69,14%,8,,76,,0,,0,,0,5,5,5,5,6
+Dawlish,1,52,1,52,,,21,10,8,,35,35,8,17,67%,20,57%,49,,0,,0,,0,21,22,22,23,23
+Exeter,9,440,6,297,1,70,122,127,11,8,361,361,112,79,82%,186,52%,418,,0,,0,,0,124,127,129,133,136
+Exmouth,9,276,1,50,1,29,65,69,8,8,222,222,88,54,80%,97,44%,262,,0,,0,,0,66,67,69,71,73
+Great Torrington,2,97,1,64,,,29,9,8,8,65,65,27,32,67%,29,45%,92,,0,,0,,0,29,30,31,32,32
+Holsworthy,2,81,2,81,,,26,10,,,67,67,31,14,83%,33,49%,77,,0,,0,,0,26,27,27,28,29
+Honiton,1,22,,,,,9,8,,,19,19,8,3,86%,9,47%,21,,0,,0,,0,9,9,10,10,10
+Ilfracombe,1,48,1,48,,,20,14,,8,36,36,8,12,75%,30,83%,46,,0,,0,,0,20,21,21,22,22
+Ivybridge,6,256,5,222,,,47,37,,8,206,206,122,50,80%,113,55%,243,,0,,0,,0,48,49,50,51,52
+Kingsbridge,,,,,,,0,0,,,,,,,,,,,,,,,,,,,,,
+Lynton and Lynmouth,,,,,,,0,0,,,,,,,,,,,,,,,,,,,,,
+Moretonhampstead,,,,,,,0,0,,,,,,,,,,,,,,,,,,,,,
+Newton Abbot,4,215,3,175,,,29,38,8,8,152,162,95,53,75%,68,45%,204,,0,,0,,0,29,30,31,32,32
+Okehampton,2,83,1,53,,,36,21,,8,73,73,16,10,88%,25,34%,79,,0,,0,,0,37,37,38,39,40
+Ottery St Mary,1,37,1,37,,,8,15,8,8,32,32,9,5,86%,23,72%,35,,0,,0,,0,8,8,8,9,9
+Seaton,3,118,1,38,2,80,35,20,8,8,96,96,41,22,81%,64,67%,112,,0,,0,,0,36,36,37,38,39
+Sidmouth,2,84,,,,,12,14,8,,72,72,46,12,86%,24,33%,80,,0,,0,,0,12,12,13,13,13
+South Molton,1,60,1,60,,,10,23,8,,55,55,22,5,92%,40,73%,57,,,,,,,10,10,11,11,11
+Tavistock,5,180,2,66,,,46,21,,8,118,118,51,62,66%,47,40%,171,,0,,0,,0,47,48,49,50,51
+Teignmouth,,,,,,,0,0,,,,,,,,,,,,,,,,,,,,,
+Tiverton,2,86,1,60,,,16,8,,,46,46,26,40,53%,19,41%,82,,0,,0,,0,16,17,17,17,18
+Totnes,,,,,,,0,0,,,,,,,,,,,,,,,,,,,,,
+Total,65,2800,32,1574,7,278,690,542,28,19,2088,2105,873,695,75%,1012,48%,2660,,0,,0,,0,702,716,729,750,770
+,,,,,,,33%,,,,,,,,,,,,,,,,,,1.7%,2.1%,1.8%,2.8%,2.7%
