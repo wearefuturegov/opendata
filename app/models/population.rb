@@ -8,7 +8,7 @@ class Population < ActiveRecord::Base
   validates_presence_of :gender, :date, :count
 
   def prediction?
-    if self.year > Time.now.year
+    self.year > Time.now.year
   end
 
   def change(population)
@@ -16,7 +16,7 @@ class Population < ActiveRecord::Base
   end
 
   def previous_year
-    Population.order(:date DESC).where(:date < self.date).first
+    Population.order("date DESC").where(:date < self.date).first
   end
 
 end

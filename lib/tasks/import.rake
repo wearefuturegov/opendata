@@ -20,8 +20,23 @@ namespace :import do
     # })
   end
 
-  desc 'Import Residential Care fund vertical data'
-  task :residentialcare => :environment do
+  desc 'Import Residential Care data'
+  task :residential_care => :environment do
+
+  end
+
+  desc 'Import Home Vacancies data'
+  task :home_vacancies => :environment do
+
+  end
+
+  desc 'Import CQC Compliance data'
+  task :cqc_compliance => :environment do
+
+  end
+
+  desc 'Import DTOC data'
+  task :dtoc => :environment do
 
   end
 
