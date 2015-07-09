@@ -1,6 +1,10 @@
-# belongs_to areas
-# belongs_to audience
-# title
-# council spend
-# NHS spend
-# trend(...?)
+class FundVertical < ActiveRecord::Base
+
+  enum trend: [:increase, :decrease]
+
+  validates_presence_of :title, :council_spend
+
+  belongs_to :area
+  belongs_to :audience
+
+end

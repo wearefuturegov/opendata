@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150709132621) do
+ActiveRecord::Schema.define(version: 20150709152600) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -34,10 +34,11 @@ ActiveRecord::Schema.define(version: 20150709132621) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "metrics", force: :cascade do |t|
-    t.date     "date"
-    t.integer  "count"
+  create_table "fund_verticals", force: :cascade do |t|
     t.string   "title"
+    t.integer  "council_spend"
+    t.integer  "nhs_spend"
+    t.integer  "trend"
     t.integer  "area_id"
     t.integer  "audience_id"
     t.datetime "created_at"
@@ -49,6 +50,16 @@ ActiveRecord::Schema.define(version: 20150709132621) do
     t.string   "link"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "population_metrics", force: :cascade do |t|
+    t.date     "date"
+    t.integer  "count"
+    t.string   "title"
+    t.integer  "area_id"
+    t.integer  "audience_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "populations", force: :cascade do |t|

@@ -1,4 +1,4 @@
-class Metric < ActiveRecord::Base
+class PopulationMetric < ActiveRecord::Base
 
   validates_presence_of :title, :date, :count
 

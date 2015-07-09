@@ -1,7 +1,8 @@
 require 'open-uri'
 require 'csv'
 
-# Note: Metrics and fund verticals hard coded in seeds.rb, taken from MPS2011 (PDF)
+# Note: PopulationMetrics and FundVerticals are hard coded in seeds.rb
+# as only available in PDF format (Devon MPS2011)
 
 namespace :import do
 
