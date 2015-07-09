@@ -11,6 +11,8 @@
 .ruby-version
 .ruby-gemset
 .rvmrc
+config/database.yml
+.DS_Store
 
 # Ignore the default SQLite database.
 /db/*.sqlite3
