@@ -1,6 +1,18 @@
 #area-list
   .link-list
     margin-bottom: 0
+    .sub, em
+      float: right
+      font-size: 0.9em
+      color: #d93a0d
+      font-weight: 200
+    em
+      opacity: 0.4
+    .sub
+      text-decoration: underline
+      &:hover, &:active, &:focus
+        text-decoration: none
+
 
   +media($medium-screen-up)
     min-height: 22.5em
