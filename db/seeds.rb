@@ -10,6 +10,8 @@ young = Audience.create({ title: '18-65 year olds' })
 elderly = Audience.create({ title: '65+ year olds' })
 carer = Audience.create({ title: 'Carers' })
 
+audiences = young, elderly, carer
+
 devon = Area.create({ name: 'Devon', audiences: audiences, live: true })
 kingston = Area.create({ name: 'Kingston', audiences: audiences })
 sutton = Area.create({ name: 'Sutton', audiences: audiences })
