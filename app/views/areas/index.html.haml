@@ -17,24 +17,24 @@
 
   .clear
 
-%section.clear#home-introduction
+%section.clear#area-list
   %header.third
     %h2
       We're live in Devon, with more areas coming soon
   .two_thirds
-    
+
     - if @areas.any?
       %ul.link-list
         - @areas.each do |area|
           -if area.live?
             %li
-              = area.name
-              = link_to "View live prototype", area_path(area)
+              = link_to area.name, area_path(area)
+              = link_to "View live prototype", area_path(area), :class => "sub"
           -else
             %li
               =area.name
               %em
-                (data being prepared)
+                data being prepared
 
 %header.hero-header.subtle
   %h1 About the project
@@ -68,7 +68,7 @@
       %p Working with council commissioners and data owners we created light user personas to help understand their needs and think about how using data differently might help. Download and reuse our personas or use our template to create your own.
       %ul.link-list
         %li= static_file('Personas', 'files/Open_Data_User-Cards.pdf')
-        
+
   %section.home-progress.clear.half
     %header
       %h3 Open data co-design workshop materials
@@ -84,7 +84,7 @@
       %p To help think about different ways data sets could be combined to meet user needs we created a card game. Download the game, edit and reuse it to help think about the value of data sets in different ways.
       %ul.link-list
         %li= static_file('Open data card game','files/Open_Data_Card-Game.pdf')
-   
+
   %section.home-progress.clear.half
     %header
       %h3 Data sharing agreement templates
