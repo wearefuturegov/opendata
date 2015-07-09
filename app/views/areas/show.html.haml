@@ -4,7 +4,7 @@
     .highlighted
       %h4 Total Population
     %div
-      %span 
+      %span
         = gender_percentage(@area, @area.total_population_female)
         Female
       %br/
@@ -50,15 +50,13 @@
 
   %section.container#chart-container
     -# Will be rendered via AJAX (areas.coffee)
-  %aside.container#spotlight-container
-    = render 'audiences/spotlight'
-    
+
 %h1
   Public funding for care in
   = @area.name
 
 %section.transparent.container#card-wrapper
   -# Will be rendered via AJAX (areas.coffee)
-  
+
 %footer.hero-footer.subtle
   %h3 Get the data

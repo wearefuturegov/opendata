@@ -1,8 +1,22 @@
-# male
-# female
-# year
-# current totals and percentages calcuated
-# prediction (true, false, or predicition if year > current year)
-# increases extrapolated from year by year data
+class Population < ActiveRecord::Base
 
-# also need UK averages
+  enum gender: [:male, :female]
+
+  belongs_to :area
+  belongs_to :audience
+
+  validates_presence_of :gender, :date, :count
+
+  def prediction?
+    if self.year > Time.now.year
+  end
+
+  def change(population)
+    (population.count - population.previous_year.count) * 100
+  end
+
+  def previous_year
+    Population.order(:date DESC).where(:date < self.date).first
+  end
+
+end
