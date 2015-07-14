@@ -22,10 +22,114 @@ PopulationMetric.create([
     audience: elderly,
     area: devon,
     title: "Dementia care need",
-    count: 15870000,
+    count: 12531,
+    date: Date.parse('01-01-2010')
+  },
+  {
+    audience: elderly,
+    area: devon,
+    title: "Dementia care need",
+    count: 14110,
     date: Date.parse('01-01-2015')
   },
-  
+  {
+    audience: elderly,
+    area: devon,
+    title: "Dementia care need",
+    count: 16189,
+    date: Date.parse('01-01-2020')
+  },
+  {
+    audience: elderly,
+    area: devon,
+    title: "Dementia care need",
+    count: 19061,
+    date: Date.parse('01-01-2025')
+  },
+  {
+    audience: elderly,
+    area: devon,
+    title: "People with a limiting long-term illness",
+    count: 70248,
+    date: Date.parse('01-01-2010')
+  },
+  {
+    audience: elderly,
+    area: devon,
+    title: "People with a limiting long-term illness",
+    count: 80905,
+    date: Date.parse('01-01-2015')
+  },
+  {
+    audience: elderly,
+    area: devon,
+    title: "People with a limiting long-term illness",
+    count: 89957,
+    date: Date.parse('01-01-2020')
+  },
+  {
+    audience: elderly,
+    area: devon,
+    title: "People with a limiting long-term illness",
+    count: 101241,
+    date: Date.parse('01-01-2025')
+  },
+  {
+    audience: elderly,
+    area: devon,
+    title: "People unable to manage at least one personal care task",
+    count: 57978,
+    date: Date.parse('01-01-2010')
+  },
+  {
+    audience: elderly,
+    area: devon,
+    title: "People unable to manage at least one personal care task",
+    count: 66046,
+    date: Date.parse('01-01-2015')
+  },
+  {
+    audience: elderly,
+    area: devon,
+    title: "People unable to manage at least one personal care task",
+    count: 74242,
+    date: Date.parse('01-01-2020')
+  },
+  {
+    audience: elderly,
+    area: devon,
+    title: "People unable to manage at least one personal care task",
+    count: 84401,
+    date: Date.parse('01-01-2025')
+  },
+  {
+    audience: elderly,
+    area: devon,
+    title: "People unable to manage at least one domestic care task",
+    count: 70543,
+    date: Date.parse('01-01-2010')
+  },
+  {
+    audience: elderly,
+    area: devon,
+    title: "People unable to manage at least one domestic care task",
+    count: 80247,
+    date: Date.parse('01-01-2015')
+  },
+  {
+    audience: elderly,
+    area: devon,
+    title: "People unable to manage at least one domestic care task",
+    count: 90678,
+    date: Date.parse('01-01-2020')
+  },
+  {
+    audience: elderly,
+    area: devon,
+    title: "People unable to manage at least one domestic care task",
+    count: 103243,
+    date: Date.parse('01-01-2025')
+  }
 ])
 
 # From PSS-EX1 (not cleansed, could be...)

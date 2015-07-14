@@ -36,7 +36,6 @@ namespace :import do
   # devon_dtoc_december_2014_all-2015-03-19-clean.csv
   task :residential_care_placements => :environment do
 
-
   end
 
 end
