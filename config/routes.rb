@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   resources :areas, :only => ["show", "index"] do
     resources :audiences, :only => "show" do
       resources :notices
+      resources :fund_verticals, :only => "show"
     end
   end
 
