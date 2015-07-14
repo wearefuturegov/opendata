@@ -30,7 +30,8 @@
         -# 'ajax_*' attributes are passed to area.coffee to load via AJAX
         .super-tab{ id: "tab-" + (index + 1).to_s,
           class: (index == 0 ? "selected" : "unselected"),
-          data: { ajax_chart: area_audience_path(@area, audience), ajax_details: breakdown_audience_path(audience.id) } }
+          data: { ajax_chart: area_audience_path(@area, audience),
+                  ajax_details: breakdown_audience_path(audience.id) } }
           %header.chart-header
             %h3= audience.title
           %article
