@@ -1,3 +1,17 @@
+# == Schema Information
+#
+# Table name: populations
+#
+#  id          :integer          not null, primary key
+#  date        :date
+#  gender      :integer
+#  count       :integer
+#  audience_id :integer
+#  area_id     :integer
+#  created_at  :datetime         not null
+#  updated_at  :datetime         not null
+#
+
 class Population < ActiveRecord::Base
 
   enum gender: [:male, :female]
