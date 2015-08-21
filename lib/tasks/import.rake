@@ -10,39 +10,59 @@ namespace :import do
   # Past, current and predictad populations. Source:
   # http://www.ons.gov.uk/ons/publications/re-reference-tables.html?edition=tcm%3A77-335242
   # http://www.ons.gov.uk/ons/rel/snpp/sub-national-population-projections/2012-based-projections/rft-open-population-las.zip
+  # Sources manually downloaded and stored in lib/tasks/data/2012 SNPP Population [females|males].csv
   task :populations => :environment do
-
     # Filter national data source by Devon districts
-    devon_districts = ["Exeter", "East Devon", "Mid Devon", "North Devon", "Torridge", "West Devon", "South Hams", "Teignbridge", "Plymouth", "Torbay"]
+    devon_districts = Set.new(["Exeter", "East Devon", "Mid Devon", "North Devon", "Torridge", "West Devon", "South Hams", "Teignbridge", "Plymouth", "Torbay"])
+    devon = Area.find_by_name("Devon")
+    elderly_audience = Audience.where(title: "65+ year olds").first
+    younger_audience = Audience.where(title: "18-65 year olds").first
+    years = (2012..2037).map(&:to_s)
+    counts = {
+      "male" => { younger_audience.id => Hash.new(0), elderly_audience.id => Hash.new(0) },
+      "female" => { younger_audience.id => Hash.new(0), elderly_audience.id => Hash.new(0) }
+    }
 
-    # Sources manually downloaded and stored in lib/tasks/data/2012 SNPP Population [females|males].csv
-    female_csv_text = File.read('lib/tasks/data/2012 SNPP Population females.csv')
-    female_csv = CSV.parse(female_csv_text, :headers => true)
-
-    # Parse to [:year, :count]
-    female_years = (2012...2037)
-    female_counts = Hash[*(2012...2038).map {|k| [k, 0.to_f]}.flatten]
-    female_csv.each do |row|
-      population = row.to_hash
-      if devon_districts.include?(population["areaname"]) && (population["AgeGroup"] == "90 and over" || population["AgeGroup"].to_i == 65)
-        population.each do |key, value|
-          if female_years.include?(key.to_i)
-            female_counts[key] = female_counts[key.to_i] + value.to_f
+    [["2012 SNPP Population males.csv", "male"], ["2012 SNPP Population females.csv", "female"]].each do |name, sex|
+      CSV.foreach("lib/tasks/data/%s" % name, headers: true) do |row|
+        next unless devon_districts.include?(row["areaname".freeze])
+        age = row["AgeGroup".freeze].to_i
+        if age >= 18 && age <= 65
+          years.each do |year|
+            counts[sex][younger_audience.id][year] += row[year].to_f
+          end
+        elsif age > 65
+          years.each do |year|
+            counts[sex][elderly_audience.id][year] += row[year].to_f
           end
         end
       end
     end
 
-    puts female_counts.inspect
+    # Round counts to integers
+    counts.each do |sex, audiences|
+      audiences.each do |audience, years|
+        years.each do |year, count|
+          counts[sex][audience][year] = counts[sex][audience][year].round
+        end
+      end
+    end
 
-    #Population.create({
-    #  area: Area.find_by_name("Devon"),
-    #  audience: Audience.find_by_title("65+ year olds"),
-    #  gender: "female",
-    #  date: Date.parse('01-01-2015'),
-    #  count: 365900
-    #})
-
+    ActiveRecord::Base.transaction do
+      counts.each do |sex, audiences|
+        audiences.each do |audience, years|
+          years.each do |year, count|
+            Population.create!(
+              area: devon,
+              audience: Audience.find(audience),
+              gender: sex,
+              date: Date.parse("%s-01-01" % year),
+              count: count
+            )
+          end
+        end
+      end
+    end
   end
 
   desc 'Import care placement data'
