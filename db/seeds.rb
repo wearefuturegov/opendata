@@ -1,9 +1,9 @@
 # This file should contain all the record creation needed to seed the database with its default values.
 # The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
 
-elderly = Audience.create({ title: '65+ year olds' })
-young = Audience.create({ title: '18-65 year olds' })
-carer = Audience.create({ title: 'Carers' })
+elderly = Audience.find_or_create_by(title: "65+ year olds")
+young = Audience.find_or_create_by(title: "18-65 year olds")
+carer = Audience.find_or_create_by(title: "Carers")
 
 audiences = young, elderly, carer
 
