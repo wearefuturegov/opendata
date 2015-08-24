@@ -79,4 +79,24 @@ namespace :import do
     # this based on wireframes
   end
 
+  task :care_homes do
+    booleanize = ->(val) { return true if val == "Y"; return false if val == "N"; return val }
+    devon = Area.where(name: "Devon").first
+    ActiveRecord::Base.transaction do
+      CSV.foreach("lib/tasks/data/devon_mi_cqc_compliance-2015-02-01-clean.csv", headers: true, converters: booleanize) do |row|
+        CareHome.create!(area: devon,
+                         cqc_location_uid: row.fetch("location_id"),
+                         name: row.fetch("name"),
+                         town: row.fetch("town"),
+                         postcode: row.fetch("provider_postcode"),
+                         nursing_care: row.fetch("nursing_flag"),
+                         residential: row.fetch("residential_flag"),
+                         all_care: row.fetch("all_care_flag"),
+                         dementia_care: row.fetch("dementia"),
+                         learning_disabilities_care: row.fetch("learning_disabilities_or_autistic_spectrum_disorder"),
+                         mental_health_care: row.fetch("mental_health"))
+      end
+    end
+  end
+
 end

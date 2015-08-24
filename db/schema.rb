@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150709152600) do
+ActiveRecord::Schema.define(version: 20150824095235) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -33,6 +33,42 @@ ActiveRecord::Schema.define(version: 20150709152600) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
+
+  create_table "care_home_metrics", force: :cascade do |t|
+    t.integer  "care_home_id",                                 null: false
+    t.date     "collection_date"
+    t.integer  "capacity"
+    t.integer  "residential_vacancies"
+    t.integer  "nursing_vacancies"
+    t.integer  "short_stay_vacancies"
+    t.date     "vacancy_update_date"
+    t.boolean  "quality_threshold_suspension", default: false, null: false
+    t.boolean  "safeguarding_suspension",      default: false, null: false
+    t.boolean  "safeguarding_notice",          default: false, null: false
+    t.datetime "created_at",                                   null: false
+    t.datetime "updated_at",                                   null: false
+  end
+
+  add_index "care_home_metrics", ["care_home_id"], name: "index_care_home_metrics_on_care_home_id", using: :btree
+
+  create_table "care_homes", force: :cascade do |t|
+    t.integer  "area_id",                                    null: false
+    t.string   "cqc_location_uid",                           null: false
+    t.text     "name",                                       null: false
+    t.string   "town",                                       null: false
+    t.string   "postcode",                                   null: false
+    t.boolean  "nursing_care",               default: false, null: false
+    t.boolean  "residential",                default: false, null: false
+    t.boolean  "all_care",                   default: false, null: false
+    t.boolean  "dementia_care",              default: false, null: false
+    t.boolean  "learning_disabilities_care", default: false, null: false
+    t.boolean  "mental_health_care",         default: false, null: false
+    t.datetime "created_at",                                 null: false
+    t.datetime "updated_at",                                 null: false
+  end
+
+  add_index "care_homes", ["area_id"], name: "index_care_homes_on_area_id", using: :btree
+  add_index "care_homes", ["cqc_location_uid"], name: "index_care_homes_on_cqc_location_uid", unique: true, using: :btree
 
   create_table "fund_verticals", force: :cascade do |t|
     t.string   "title"
