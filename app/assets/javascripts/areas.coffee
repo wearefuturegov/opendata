@@ -40,23 +40,23 @@ ready = ->
 
   renderLegend = (data) ->
     d3.select('.legend').selectAll('li').data(data["legend"])
-      .enter().append('li').attr('class', 'key', 'data-id', (id) -> id
-    ).html((id) ->
-      id
+      .enter().append 'li'
+      .attr('class', 'key', 'data-id', (id) -> id)
+      .html((id) -> id
     ).each((id) ->
       li = d3.select(this)
       # Add toggle bubble
-      span = li.insert("span")
+      span = li.insert "span"
       # Style toggle bubble
       span.attr("class", "toggle").style('background-color', chart.color(id))
     ).on('mouseover', (id) ->
       # Mouseover focus data
       chart.focus id
     ).on('mouseout', (id) ->
-      chart.revert()
+      chart.revert
     ).on 'click', (id) ->
       # On click toggle class
-      $(this).toggleClass('active')
+      $(this).toggleClass 'active'
       chart.toggle id
 
   updateChart = (data) =>
