@@ -19,6 +19,10 @@ class AudiencesController < ApplicationController
 
   def chart_data(audience, records, dementia)
     {
+      title: [
+        audience.title,
+        audience.id
+      ],
       columns: [
         ["x"] + records.map {|r| r.date.year },
         ["data1"] + records.map(&:count),

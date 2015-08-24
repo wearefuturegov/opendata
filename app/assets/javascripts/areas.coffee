@@ -60,9 +60,14 @@ ready = ->
       chart.toggle id
 
   updateChart = (data) =>
+    updateChartHeader(data)
     chart.load
       columns: data["columns"]
     renderLegend(data)
+
+  updateChartHeader = (data) =>
+    $('#chart-container .chart-header').attr('id', "tab_" + data["title"][1])
+    $('#chart-container .chart-header h2').text(data["title"][0])
 
   loadChart = (url, container) ->
     $.ajax
