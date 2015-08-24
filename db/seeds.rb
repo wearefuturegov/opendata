@@ -7,9 +7,16 @@ carer = Audience.create({ title: 'Carers' })
 
 audiences = young, elderly, carer
 
-devon = Area.create({ name: 'Devon', audiences: audiences, live: true })
-kingston = Area.create({ name: 'Kingston', audiences: audiences })
-sutton = Area.create({ name: 'Sutton', audiences: audiences })
+devon = Area.find_or_create_by(name: "Devon") do |area|
+  area.audiences = audiences
+  area.live = true
+end
+kingston = Area.find_or_create_by(name: "Kingston") do |area|
+  area.audiences = audiences
+end
+sutton = Area.find_or_create_by(name: "Sutton") do |area|
+  area.audiences = audiences
+end
 
 # From MPS2011 document (PDF)
 PopulationMetric.create([
