@@ -46,6 +46,9 @@ group :development, :test do
   gem 'spring'
 end
 
+gem 'bourbon', '~>4.2.4'
+gem 'neat', '~>1.7.2'
+
 # Bower assets served by rails-assets.org
 # They will bundle normally without node!
 source 'https://rails-assets.org' do
