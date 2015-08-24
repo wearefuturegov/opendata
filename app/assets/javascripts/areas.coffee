@@ -1,82 +1,46 @@
 ready = ->
-  # Load a url via AJAX
-  loadAJAX = (chart, cards) ->
-    $('#chart-container').load chart,(responseText, textStatus, XMLHttpRequest) ->
-      if (textStatus == 'success')
-        generateChart()
-      else
-        console.log(textStatus)
-    $('#card-wrapper').load cards,(responseText, textStatus, XMLHttpRequest) ->
-      if (textStatus != 'success')
-        console.log(textStatus)
+  chart = null
 
-
-  supertabs = $(".super-tab")
-
-  firsttab = supertabs[0]
-
-  if supertabs.length
-    chart = firsttab.attributes[1].value
-    cards = firsttab.attributes[2].value
-
-  # Load first tab by default
-  loadAJAX(chart, cards)
+  supertabs = $(".super-tab-wrapper")
 
   # On click toggle classes
-  if supertabs.length
-    supertabs.click ->
-      t = $(this)
+  supertabs.on "click", ".super-tab.unselected", ->
+    t = $(this)
+    t.removeClass("unselected").addClass("selected")
 
-      # Don't run if already active
-      if (t.attr('class') != 'super-tab selected')
-        # Toggle classes
-        t.toggleClass('unselected')
-        t.toggleClass('selected')
+    # Deselect other tabs
+    t.siblings().addClass("unselected").removeClass("selected")
+    t.trigger("selected")
 
-        # Deselect other tabs
-        t.siblings().addClass('unselected')
-        t.siblings().removeClass('selected')
+  supertabs.on "selected", (e) ->
+    loadChart($(e.target).data("chart-url"), $("#chart-container"))
+    loadCards($(e.target).data("details-url"), $("#card-wrapper"))
 
-        chart = t[0].attributes[1].value
-        cards = t[0].attributes[2].value
+  chartOptions =
+    data:
+      x: "x"
+      columns: [0]
+    axis:
+      x:
+        type: "spline"
+    bindto: ".chart"
+    transition:
+      duration: 1000
+    grid:
+      y:
+        show: true
+        min: 0
+    legend:
+      show: false
+    line:
+      connectNull: true
 
-        # Load via ajax
-        loadAJAX(chart, cards)
+  initChart = (container) ->
+    chart = c3.generate(chartOptions)
 
-  generateChart = ->
-    # Render chart
-    chart = c3.generate(
-      data:
-        columns: [ 
-          [ "Foo", 30, 200, 100, 400, 150, 250 ],
-          [ "Bar", 130, 100, 140, 200, 150, 50 ],
-          [ "Baz", 40, 50, 60, 70, 80, 90],
-          [ "FooBar", 45, 75, 20, 67, 120, 130],
-          [ "BarFoo", 57, 43, 34, 267, 82, 30],
-          [ "BarBaz", 200, 100, 50, 25, 50, 100]
-        ]
-        type: 'spline'
-
-      bindto: '.chart'
-      transition:
-        duration: 1000
-      grid:
-        y: 
-          show: true
-      legend:
-        show: false
-    )
-
-    # Render legend
-    d3.select('.legend').selectAll('li').data([
-      'Foo'
-      'Bar'
-      'Baz'
-      'FooBar'
-      'BarFoo'
-      'BarBaz'
-    ]).enter().append('li').attr('class', 'key', 'data-id', (id) ->
-      id
+  renderLegend = (data) ->
+    d3.select('.legend').selectAll('li').data(data["legend"])
+      .enter().append('li').attr('class', 'key', 'data-id', (id) -> id
     ).html((id) ->
       id
     ).each((id) ->
@@ -94,6 +58,32 @@ ready = ->
       # On click toggle class
       $(this).toggleClass('active')
       chart.toggle id
+
+  updateChart = (data) =>
+    chart.load
+      columns: data["columns"]
+    renderLegend(data)
+
+  loadChart = (url, container) ->
+    $.ajax
+      url: url
+      dataType: "json"
+      success: (data, status, xhr) =>
+        updateChart(data)
+      error: (data, status, xhr) ->
+        console.error(data, status, xhr)
+
+  loadCards = (url, container) ->
+    $.ajax
+      url: url
+      dataType: "html"
+      success: (data, status, xhr) =>
+        container.html(data)
+      error: (data, status, xhr) =>
+        console.error(data, status, xhr)
+
+  initChart()
+  supertabs.find(".selected").trigger("selected")
 
 $(document).ready(ready)
 # Wait for turbolinks
