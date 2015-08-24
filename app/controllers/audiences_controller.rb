@@ -12,26 +12,35 @@ class AudiencesController < ApplicationController
                     .select("date, SUM(count) AS count")
                     .group("date")
 
-    dementia_care_need = PopulationMetric.where(audience: audience, area: area, title: "Dementia care need")
+    metrics = PopulationMetric.where(audience: audience, area: area).group_by(&:title)
 
-    render json: chart_data(audience, pop, dementia_care_need)
+    render json: chart_data(audience, pop, metrics)
   end
 
-  def chart_data(audience, records, dementia)
-    {
+  def chart_data(audience, records, metrics)
+    chart = {
       title: [
         audience.title,
         audience.id
       ],
       columns: [
         ["x"] + records.map {|r| r.date.year },
-        ["data1"] + records.map(&:count),
-        ["data2"] + records.map {|r| if found = dementia.detect {|d| d.date == r.date } then found.count else nil end }
+        ["pop"] + records.map(&:count)
       ],
       legend: [
-        audience.title,
-        "Dementia care need"
-      ]
+        audience.title
+      ] + metrics.keys
     }
+
+    metrics.each_with_index do |(title, values), i|
+      chart[:columns] << ["metrics%s" % i] + records.map do |r|
+        if found = values.detect {|d| d.date == r.date }
+          found.count
+        else
+          nil
+        end
+      end
+    end
+    chart
   end
 end
