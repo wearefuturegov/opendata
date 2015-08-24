@@ -5,20 +5,16 @@
       %h4 Total Population
     %div
       %span
-        =# gender_percentage(@area, @area.total_population_female)
-        Female
+        XX% Female
       %br/
       %small
-        =# number_with_delimiter(@area.total_population_female)
-        people
+        XXX,XXX people
     %div
       %span
-        =# gender_percentage(@area, @area.total_population_male)
-        Male
+        XX% Male
       %br/
       %small
-        =# number_with_delimiter(@area.total_population_male)
-        people
+        XXX,XXX people
     %span.clear
 
 %section.chart-wrapper.container
@@ -27,6 +23,8 @@
       -# ID required by styling "#tab-1", "#tab-2" etc.
       -# Class to select default tab on view load
       -# 'ajax_*' attributes are passed to area.coffee to load via AJAX
+      -# TODO: Real stats!
+      -# TODO: Helper / Decorator to decide positive or negative
       .super-tab{ id: "tab-#{index + 1}",
         class: (index == 0 ? "selected" : "unselected"),
         data: { chart_url: area_audience_path(@area, audience),
@@ -37,15 +35,14 @@
           %p
             %strong XXX,XXX
           .super-tab-trend.clear
-            -# TODO: Helper / Decorator to decide positive or negative
             %i.icon.circle.circle-positive &#58776;
             %data
-              -# TODO: Real stats!
               %span.stat-value +XX%
               %p Increase or decrease?
           %p
             %strong XXX,XXX predicted for 2021
 
+    -# Only used on small screens
     %section.super-tab-info.clear
 
   %section.container#chart-container
@@ -62,5 +59,5 @@
 %section.transparent.container#card-wrapper
   -# Will be rendered via AJAX (areas.coffee)
 
-%footer.hero-footer.subtle
+-#%footer.hero-footer.subtle
   %h3 Get the data
