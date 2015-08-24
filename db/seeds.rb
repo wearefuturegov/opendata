@@ -124,6 +124,146 @@ PopulationMetric.create([
     title: "People unable to manage at least one domestic care task",
     count: 103243,
     date: Date.parse('01-01-2025')
+  },
+  {
+    audience: young,
+    area: devon,
+    title: "People with a moderate or severe learning disability",
+    count: 2409,
+    date: Date.parse('01-01-2010')
+  },
+  {
+    audience: young,
+    area: devon,
+    title: "People with a moderate or severe learning disability",
+    count: 2431,
+    date: Date.parse('01-01-2015')
+  },
+  {
+    audience: young,
+    area: devon,
+    title: "People with a moderate or severe learning disability",
+    count: 2483,
+    date: Date.parse('01-01-2020')
+  },
+  {
+    audience: young,
+    area: devon,
+    title: "People with a moderate or severe learning disability",
+    count: 2550,
+    date: Date.parse('01-01-2025')
+  },
+  {
+    audience: young,
+    area: devon,
+    title: "People with moderate physical disability",
+    count: 37417,
+    date: Date.parse('01-01-2010')
+  },
+  {
+    audience: young,
+    area: devon,
+    title: "People with moderate physical disability",
+    count: 37346,
+    date: Date.parse('01-01-2015')
+  },
+  {
+    audience: young,
+    area: devon,
+    title: "People with moderate physical disability",
+    count: 38488,
+    date: Date.parse('01-01-2020')
+  },
+  {
+    audience: young,
+    area: devon,
+    title: "People with moderate physical disability",
+    count: 39242,
+    date: Date.parse('01-01-2025')
+  },
+  {
+    audience: young,
+    area: devon,
+    title: "People with a severe physical disability",
+    count: 11579,
+    date: Date.parse('01-01-2010')
+  },
+  {
+    audience: young,
+    area: devon,
+    title: "People with a severe physical disability",
+    count: 11428,
+    date: Date.parse('01-01-2015')
+  },
+  {
+    audience: young,
+    area: devon,
+    title: "People with a severe physical disability",
+    count: 11914,
+    date: Date.parse('01-01-2020')
+  },
+  {
+    audience: young,
+    area: devon,
+    title: "People with a severe physical disability",
+    count: 12298,
+    date: Date.parse('01-01-2025')
+  },
+  {
+    audience: young,
+    area: devon,
+    title: "People with a moderate or severe personal care disability",
+    count: 23045,
+    date: Date.parse('01-01-2010')
+  },
+  {
+    audience: young,
+    area: devon,
+    title: "People with a moderate or severe personal care disability",
+    count: 22902,
+    date: Date.parse('01-01-2015')
+  },
+  {
+    audience: young,
+    area: devon,
+    title: "People with a moderate or severe personal care disability",
+    count: 23782,
+    date: Date.parse('01-01-2020')
+  },
+  {
+    audience: young,
+    area: devon,
+    title: "People with a moderate or severe personal care disability",
+    count: 24731,
+    date: Date.parse('01-01-2025')
+  },
+  {
+    audience: young,
+    area: devon,
+    title: "People with a mental health problem",
+    count: 71733,
+    date: Date.parse('01-01-2010')
+  },
+  {
+    audience: young,
+    area: devon,
+    title: "People with a mental health problem",
+    count: 71851,
+    date: Date.parse('01-01-2015')
+  },
+  {
+    audience: young,
+    area: devon,
+    title: "People with a mental health problem",
+    count: 72733,
+    date: Date.parse('01-01-2020')
+  },
+  {
+    audience: young,
+    area: devon,
+    title: "People with a mental health problem",
+    count: 73777,
+    date: Date.parse('01-01-2025')
   }
 ])
 
