@@ -8,9 +8,6 @@ class CreateCareHomeMetrics < ActiveRecord::Migration
       t.integer :nursing_vacancies
       t.integer :short_stay_vacancies
       t.date :vacancy_update_date
-      t.boolean :quality_threshold_suspension, null: false, default: false
-      t.boolean :safeguarding_suspension, null: false, default: false
-      t.boolean :safeguarding_notice, null: false, default: false
 
       t.timestamps null: false
     end

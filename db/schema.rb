@@ -35,18 +35,15 @@ ActiveRecord::Schema.define(version: 20150824095235) do
   end
 
   create_table "care_home_metrics", force: :cascade do |t|
-    t.integer  "care_home_id",                                 null: false
+    t.integer  "care_home_id",          null: false
     t.date     "collection_date"
     t.integer  "capacity"
     t.integer  "residential_vacancies"
     t.integer  "nursing_vacancies"
     t.integer  "short_stay_vacancies"
     t.date     "vacancy_update_date"
-    t.boolean  "quality_threshold_suspension", default: false, null: false
-    t.boolean  "safeguarding_suspension",      default: false, null: false
-    t.boolean  "safeguarding_notice",          default: false, null: false
-    t.datetime "created_at",                                   null: false
-    t.datetime "updated_at",                                   null: false
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
   end
 
   add_index "care_home_metrics", ["care_home_id"], name: "index_care_home_metrics_on_care_home_id", using: :btree

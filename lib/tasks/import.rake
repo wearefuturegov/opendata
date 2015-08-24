@@ -99,4 +99,29 @@ namespace :import do
     end
   end
 
+  task :care_home_metrics do
+    devon = Area.where(name: "Devon").first
+    ActiveRecord::Base.transaction do
+      CSV.foreach("lib/tasks/data/devon_mi_cqc_compliance-2015-02-01-clean.csv", headers: true) do |row|
+        home = CareHome.find_by!(cqc_location_uid: row.fetch("location_id"))
+        home.metrics.create!(capacity: row.fetch("capacity"))
+      end
+    end
+    ActiveRecord::Base.transaction do
+      CSV.foreach("lib/tasks/data/devon_home_vacancies-2015-03-17-clean.csv", headers: true) do |row|
+        begin
+          home = CareHome.find_by!(cqc_location_uid: row.fetch("cqc_location_id"))
+          home.metrics.first.update_attributes!(residential_vacancies: row.fetch("no_of_residential_vacancies").to_i,
+                                                nursing_vacancies: row.fetch("no_of_nursing_vacancies").to_i,
+                                                short_stay_vacancies: row.fetch("no_of_short_stay_vacancies").to_i,
+                                                vacancy_update_date: row["date_vacancies_were_updated"].to_s.strip != "" ? Date.parse(row["date_vacancies_were_updated"]) : nil)
+        rescue ActiveRecord::RecordNotFound => e
+          puts e.inspect, row.inspect
+        rescue ArgumentError => e
+          puts e.inspect, row.inspect
+        end
+      end
+    end
+  end
+
 end
