@@ -44,7 +44,7 @@
               %data
                 %span.stat-value
                   = number_to_percentage(change, precision: 2)
-                %p= change > 0 ? "Increase" : "decrease"
+                %p= change > 0 ? "Increase" : "Decrease"
           %p
             %strong
               = number_with_delimiter(audience.total_population_at(@horizon_year))
