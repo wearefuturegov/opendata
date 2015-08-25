@@ -66,6 +66,10 @@
   padding-left: $medium-spacing
   position: relative
 
+  +media($medium-large-screen-up)
+    +span-columns(6 of 12)
+    +omega(2n)
+
   .toggle,
   &:after
     border-radius: 100px
