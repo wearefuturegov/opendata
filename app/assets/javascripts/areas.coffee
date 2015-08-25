@@ -6,11 +6,13 @@ ready = ->
   # On click toggle classes
   supertabs.on "click", ".super-tab.unselected", ->
     t = $(this)
-    t.removeClass("unselected").addClass("selected")
 
-    # Deselect other tabs
-    t.siblings().addClass("unselected").removeClass("selected")
-    t.trigger("selected")
+    if !t.hasClass('disabled')
+      t.removeClass("unselected").addClass("selected")
+
+      # Deselect other tabs
+      t.siblings().addClass("unselected").removeClass("selected")
+      t.trigger("selected")
 
   supertabs.on "selected", (e) ->
     loadChart($(e.target).data("chart-url"), $("#chart-container"))

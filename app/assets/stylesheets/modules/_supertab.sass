@@ -26,7 +26,7 @@
     height: 100%
 
 .super-tab
-  +box-sizing(border-box)
+  box-sizing: border-box
   width: calc(33.33% - 3px)
   margin: 0 3px 3px 0
   float: left
@@ -124,6 +124,18 @@
       height: 88px
       +media($large-screen-up)
         height: 80px
+
+.super-tab
+  &.disabled
+    opacity: .7
+    &:hover
+      cursor: pointer
+      border-top: 15px solid
+      border-top-color: $medium-gray !important
+      +media($large-screen-up)
+        border-top: 0
+        border-left: 15px solid
+        border-left-color: $medium-gray !important
 
 .super-tab-trend
   float: left
