@@ -4,7 +4,7 @@
 #
 #  id          :integer          not null, primary key
 #  date        :date
-#  gender      :integer
+#  gender      :string           not null
 #  count       :integer
 #  audience_id :integer
 #  area_id     :integer
@@ -13,9 +13,6 @@
 #
 
 class Population < ActiveRecord::Base
-
-  enum gender: [:male, :female]
-
   belongs_to :area
   belongs_to :audience
 
