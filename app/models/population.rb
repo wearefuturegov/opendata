@@ -18,6 +18,14 @@ class Population < ActiveRecord::Base
 
   validates_presence_of :gender, :date, :count
 
+  def self.with_gender(gender)
+    where(gender: gender)
+  end
+
+  def self.current_year
+    where("extract(year from date) = ?", Date.current.year)
+  end
+
   def prediction?
     self.year > Time.now.year
   end
@@ -29,5 +37,4 @@ class Population < ActiveRecord::Base
   def previous_year
     Population.order("date DESC").where(:date < self.date).first
   end
-
 end

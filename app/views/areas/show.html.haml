@@ -5,16 +5,20 @@
       %h4 Total Population
     %div
       %span
-        XX% Female
+        = number_to_percentage(@area.total_population_percent_by_gender("female"), precision: 2)
+        Female
       %br/
       %small
-        XXX,XXX people
+        = number_with_delimiter(@area.total_population_by_gender("female"))
+        people
     %div
       %span
-        XX% Male
+        = number_to_percentage(@area.total_population_percent_by_gender("male"), precision: 2)
+        Male
       %br/
       %small
-        XXX,XXX people
+        = number_with_delimiter(@area.total_population_by_gender("male"))
+        people
     %span.clear
 
 %section.chart-wrapper.container
