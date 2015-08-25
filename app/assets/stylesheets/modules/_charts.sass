@@ -5,12 +5,14 @@
 // C3 Axis line
 .c3-axis
   .domain
-    stroke: $dark-gray
+    stroke: $medium-gray
+    stroke-width: 2px
 
 // C3 Axis ticks and number
 .tick
   line
-    stroke: $dark-gray
+    stroke: $medium-dark-gray
+    stroke-width: 2px
   text
     font-family: $mono-font-family
     fill: $dark-gray
@@ -21,14 +23,24 @@
   stroke-dasharray: 0
   stroke: $light-gray !important
 
+// C3 Line
+.c3-line
+  stroke-width: 3px
+
+// C3 Line dots
+.c3-circle
+  // Radius (apparently)
+  r: 5
+
 // C3 Tooltip
 .c3-tooltip-container
   display: static !important
 
 .c3-tooltip
-  width: 150px
+  width: 300px
   opacity: 1
-  box-shadow: 0
+  box-shadow: none
+  border-width: 2px
   th
     border-bottom: 0
   tr
@@ -44,7 +56,6 @@
     border-left: $light-border
     &:first-of-type
       border-left: 0
-
 
 .legend
   list-style: none
