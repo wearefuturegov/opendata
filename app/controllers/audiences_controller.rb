@@ -12,7 +12,9 @@ class AudiencesController < ApplicationController
                     .select("date, SUM(count) AS count")
                     .group("date")
 
-    metrics = PopulationMetric.where(audience: audience, area: area).group_by(&:title)
+    metrics = PopulationMetric.where(audience: audience, area: area)
+      .order("date")
+      .group_by(&:title)
 
     render json: chart_data(audience, pop, metrics)
   end
@@ -25,22 +27,26 @@ class AudiencesController < ApplicationController
       ],
       columns: [
         ["x"] + records.map {|r| r.date.year },
-        ["Population growth"] + records.map(&:count)
+        ["Population growth", 0] + records[1..-1].map {|r| percentage_change(records[0].count, r.count) }
       ],
       legend: [
         "Population growth"
       ] + metrics.keys
     }
 
-    metrics.each_with_index do |(title, values), i|
+    metrics.each do |title, values|
       chart[:columns] << [title] + records.map do |r|
-        if found = values.detect {|d| d.date == r.date }
-          found.count
+        if (found = values.detect {|d| d.date == r.date })
+          percentage_change(values[0].count, found.count)
         else
           nil
         end
       end
     end
     chart
+  end
+
+  def percentage_change(from, to)
+    (100 * (to - from) / from.to_f).round
   end
 end

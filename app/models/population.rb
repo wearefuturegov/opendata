@@ -29,12 +29,4 @@ class Population < ActiveRecord::Base
   def prediction?
     self.year > Time.now.year
   end
-
-  def change(population)
-    (population.count - population.previous_year.count) * 100
-  end
-
-  def previous_year
-    Population.order("date DESC").where(:date < self.date).first
-  end
 end
