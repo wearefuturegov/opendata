@@ -1,5 +1,3 @@
-// TODO: MAKE THIS WHOLE FILE LESS OF A COMPLETE NIGHTMARE
-
 // Mixin to make color coding super tab border easier
 // Usage: +tabs-border(left, false)
 // Hover is true by default
@@ -17,12 +15,9 @@
 .super-tab-wrapper
   position: relative
   +media($medium-screen-up)
-    +span-columns(12 of 12)
-    margin: 0 3px 0 0
     height: 40%
   +media($large-screen-up)
     +span-columns(3 of 12, block-collapse)
-    margin-right: 0
     height: 100%
 
 .super-tab
@@ -40,7 +35,6 @@
     h3
       line-height: normal
       display: inline-block
-      font-size: 1em
       +media($medium-screen-up)
         font-size: 1.2em
 
@@ -145,6 +139,7 @@
 
 .super-tab-trend
   float: left
+  margin-bottom: $small-spacing
 
   .stat-value
     margin-bottom: 0
@@ -157,14 +152,14 @@
   i
     margin-right: $small-spacing
   data
-    margin-top: -5px
+    margin-top: 10px
     width: 200px
     +media($medium-screen-up)
       max-width: 90px
     +media($medium-large-screen-up)
       max-width: 170px
     +media($large-screen-up)
-      max-width: 130px 
+      max-width: 130px
 
   +media($medium-screen-up)
     .stat-value,
