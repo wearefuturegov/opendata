@@ -28,12 +28,12 @@ class AudiencesController < ApplicationController
         ["Population growth"] + records.map(&:count)
       ],
       legend: [
-        "Population growth" 
+        "Population growth"
       ] + metrics.keys
     }
 
     metrics.each_with_index do |(title, values), i|
-      chart[:columns] << ["%s" % title] + records.map do |r|
+      chart[:columns] << [title] + records.map do |r|
         if found = values.detect {|d| d.date == r.date }
           found.count
         else
