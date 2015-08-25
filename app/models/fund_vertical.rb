@@ -22,4 +22,13 @@ class FundVertical < ActiveRecord::Base
   belongs_to :area
   belongs_to :audience
 
+  def self.with_audience(audience)
+    where(audience: audience)
+  end
+
+  def direction
+    return "positive" if trend == :increase
+    return "negative" if trend == :decrease
+    return "static"
+  end
 end

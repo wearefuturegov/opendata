@@ -28,9 +28,9 @@
       -# Class to select default tab on view load
       -# '*_url' attributes are passed to area.coffee to load via AJAX
       .super-tab{ id: "tab-#{index + 1}",
-        class: (index == 0 ? "selected" : "unselected") + (audience.total_population_at(Date.current.year) == 0 ? " disabled" : ""),
-        data: { chart_url: area_audience_path(@area, audience),
-                details_url: breakdown_audience_path(audience) } }
+                  class: (index == 0 ? "selected" : "unselected") + (audience.total_population_at(Date.current.year) == 0 ? " disabled" : ""),
+                  data: { chart_url: area_audience_path(@area, audience),
+                          details_url: area_audience_fund_verticals_path(@area, audience) } }
         %header.chart-header
           %h3= audience.title
         %article

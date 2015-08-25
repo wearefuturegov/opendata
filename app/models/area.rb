@@ -12,6 +12,7 @@
 class Area < ActiveRecord::Base
   has_and_belongs_to_many :audiences
   has_many :populations
+  has_many :fund_verticals
 
   validates :name, presence: true, uniqueness: true
 
