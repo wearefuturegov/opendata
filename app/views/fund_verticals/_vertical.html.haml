@@ -9,11 +9,15 @@
       %h3
         Trend
       %small More spending
-    - if vertical.trend == :decrease
+    - elsif vertical.trend == :decrease
       %i.icon.circle.circle-negative.circle-hollow &#58777;
       %h3
         Trend
       %small Less spending
+    - else
+      %i.icon.circle.circle-hollow &#xe271; 
+      %h3 Trend
+      %small No trend
   .card-stat
     %h5 Council Spending
     %span.stat-value-na

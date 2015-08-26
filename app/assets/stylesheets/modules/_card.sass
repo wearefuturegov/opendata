@@ -7,8 +7,16 @@
 
   +media($medium-screen-up)
     +span-columns(4 of 12)
+    +omega(3n)
   +media($large-screen-up)
+    // Arrgh!!
+    +omega-reset(3n)
     +span-columns(3 of 12)
+    &:nth-child(3n)
+      margin-right: 2.35765%
+    &:nth-child(4n)
+      clear: none
+      margin-right: 0
 
   header
     height: 70px
@@ -44,6 +52,8 @@
     background-color: $positive
   &.negative
     background-color: $negative
+  &.static
+    background-color: $dark-gray
 
 .card-stat
   border-bottom: $light-border
