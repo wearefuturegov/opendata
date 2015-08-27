@@ -1,6 +1,5 @@
 ready = ->
   chart = null
-
   supertabs = $(".super-tab-wrapper")
 
   # On click toggle classes
@@ -14,6 +13,7 @@ ready = ->
       t.siblings().addClass("unselected").removeClass("selected")
       t.trigger("selected")
 
+  # On select load views via AJAX
   supertabs.on "selected", (e) ->
     loadChart($(e.target).data("chart-url"), $("#chart-container"))
     loadCards($(e.target).data("details-url"), $("#card-wrapper"))
@@ -37,10 +37,13 @@ ready = ->
     line:
       connectNull: true
 
+  # Initialise chart
   initChart = (container) ->
     chart = c3.generate(chartOptions)
 
+  # Custom chart legend
   renderLegend = (data) ->
+    # Append li
     d3.select('.legend').selectAll('li').data(data["legend"])
       .enter().append 'li'
       .attr('class', 'key', 'data-id', (id) -> id)
@@ -67,6 +70,7 @@ ready = ->
       columns: data["columns"]
     renderLegend(data)
 
+  # Update chart header on load
   updateChartHeader = (data) =>
     $('#chart-container .chart-header').attr('id', "tab_" + data["title"][1])
     $('#chart-container .chart-header h2').text(data["title"][0])
