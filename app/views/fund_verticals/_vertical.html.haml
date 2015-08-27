@@ -15,15 +15,11 @@
         Trend
       %small Less spending
     - else
-      %i.icon.circle.circle-hollow &#xe271; 
+      %i.icon.circle.circle-hollow &#xe271;
       %h3 Trend
       %small No trend
-  .card-stat
-    %h5 Council Spending
-    %span.stat-value-na
-      = (vertical.council_spend && number_to_currency(vertical.council_spend, unit: "£", precision: 0)) || "Not Provided"
-  .card-stat
-    %h5 NHS Spending
-    %span.stat-value
-      = (vertical.nhs_spend && number_to_currency(vertical.council_spend, unit: "£", precision: 0)) || "Not Provided"
-
+  - [vertical.council_spend, vertical.nhs_spend].each_with_index do |data, index|
+    .card-stat
+      %h5= "#{index == 0 ? "Council" : "NHS" } Spending"
+      %span{ class: "#{data ? 'stat-value' : 'stat-value-na'}" }
+        = (data && number_to_currency(data, unit: "£", precision: 0)) || "Not Provided"
