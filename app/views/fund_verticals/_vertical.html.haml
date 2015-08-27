@@ -20,6 +20,6 @@
       %small No trend
   - [vertical.council_spend, vertical.nhs_spend].each_with_index do |data, index|
     .card-stat
-      %h5= "#{index == 0 ? "Council" : "NHS" } Spending"
+      %h5 #{index == 0 ? 'Council' : 'NHS'} Spending
       %span{ class: "#{data ? 'stat-value' : 'stat-value-na'}" }
         = (data && number_to_currency(data, unit: "£", precision: 0)) || "Not Provided"

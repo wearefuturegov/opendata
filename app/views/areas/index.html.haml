@@ -26,13 +26,13 @@
     - if @areas.any?
       %ul.link-list
         - @areas.each do |area|
-          -if area.live?
+          - if area.live?
             %li
               = link_to area.name, area_path(area)
-              = link_to "View live prototype", area_path(area), :class => "sub"
-          -else
+              = link_to "View live prototype", area_path(area), class: "sub"
+          - else
             %li
-              =area.name
+              = area.name
               %em
                 data being prepared
 
@@ -75,7 +75,7 @@
     %article
       %p Co-design workshops helped us to think about why certain data sets should be prioritised for release. Find out how we structured our workshops with providers and commissioners.
       %ul.link-list
-        %li= static_file('Workshop materials','files/Open_Data_Workshop-Materials.pdf')
+        %li= static_file('Workshop materials', 'files/Open_Data_Workshop-Materials.pdf')
 
   %section.home-progress.half.clear
     %header
@@ -83,7 +83,7 @@
     %article
       %p To help think about different ways data sets could be combined to meet user needs we created a card game. Download the game, edit and reuse it to help think about the value of data sets in different ways.
       %ul.link-list
-        %li= static_file('Open data card game','files/Open_Data_Card-Game.pdf')
+        %li= static_file('Open data card game', 'files/Open_Data_Card-Game.pdf')
 
   %section.home-progress.clear.half
     %header
@@ -91,14 +91,14 @@
     %article
       %p We created a simple process for sharing data and project documentation. We’ve made use of collaborative tools like Google Drive to share data, making sure access rights were defined and setup at the beginning of the project.
       %ul.link-list
-        %li= static_file('Data sharing agreements','files/Open_Data_Agreement-Template.docx')
+        %li= static_file('Data sharing agreements', 'files/Open_Data_Agreement-Template.docx')
   %section.home-progress.clear.half
     %header
       %h3 Final project report
     %article
       %p Our final report sets out in detail all of the work that we have done and more detail about the data sets that they are releasing.
       %ul.link-list
-        %li= static_file('Final report','files/Open_Data_Final-Report.pdf')
+        %li= static_file('Final report', 'files/Open_Data_Final-Report.pdf')
 
   %section.home-progress.half.clear
     %header
@@ -106,7 +106,7 @@
     %article
       %p Devon Council has created this short framework to accompany the final report that sets out the process they’ve followed and adapted to release open data. Our intention is that together with the final report, this provides a framework that can be followed by other councils allowing them to release more data.
       %ul.link-list
-        %li= static_file('Open data framework','files/Open_Data_Publishing-Framework.pdf')
+        %li= static_file('Open data framework', 'files/Open_Data_Publishing-Framework.pdf')
 
 %footer.hero-footer.subtle#home-subfooter
   %h3 Like to know more about the project?

@@ -37,7 +37,7 @@
           %p
             %strong
               - if audience.total_population_at(Date.current.year) > 0
-                = "#{number_with_delimiter(audience.total_population_at(Date.current.year))} People"
+                #{number_with_delimiter(audience.total_population_at(Date.current.year))} People
               - else
                 = I18n.t('data.missing')
           - if audience.total_population_at(Date.current.year) > 0
@@ -74,5 +74,5 @@
 %section.transparent.container#card-wrapper
   -# Will be rendered via AJAX (areas.coffee)
 
--#%footer.hero-footer.subtle
+-# %footer.hero-footer.subtle
   %h3 Get the data
