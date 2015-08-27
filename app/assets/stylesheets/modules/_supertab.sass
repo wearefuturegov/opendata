@@ -1,14 +1,18 @@
 // Mixin to make color coding super tab border easier
-// Usage: +tabs-border(left, false)
-// Hover is true by default
-=tabs-border($side, $hover: true)
-  $t: (1: $eighteen-sixty, 2: $sixtyfive-plus, 3: $carers)
+// Usage: +tabs-border(left, false, $tabs)
+// Border side: top, left, bottom or right...
+// Hover: true by default
+// Tabs: Accepts a SASS map of colors 
+// e.g. $tabs: (1: $blue, 2: $red ... )
+$tabs: (1: $eighteen-sixty, 2: $sixtyfive-plus, 3: $carers)
+
+=tabs-border($side, $hover: true, $tabs: $tabs)
   @if $hover
-    @each $number, $color in $t
+    @each $number, $color in $tabs
       &#tab-#{$number}:hover
         border-#{$side}-color: $color
   @else
-    @each $number, $color in $t
+    @each $number, $color in $tabs
       &#tab-#{$number}
         border-#{$side}-color: $color
 
