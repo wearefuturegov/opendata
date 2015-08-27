@@ -37,7 +37,7 @@
           %p
             %strong
               - if audience.total_population_at(Date.current.year) > 0
-                #{number_with_delimiter(audience.total_population_at(Date.current.year))} People
+
               - else
                 = I18n.t('data.missing')
           - if audience.total_population_at(Date.current.year) > 0
@@ -67,7 +67,7 @@
     %h3 Legend
     %ul.legend
 
-%h1
+%h1.card-heading
   Public funding for care in
   = @area.name
 
