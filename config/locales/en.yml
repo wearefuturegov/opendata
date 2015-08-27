@@ -1,6 +1,8 @@
 en:
-  app: 
+  app:
     name: "Local Care Market"
   data:
     missing: "Sorry, we don't have enough data to populate this sector yet."
+  vertical:
+    missing: "Sorry, we don't have enough data to populate trends yet."
 
