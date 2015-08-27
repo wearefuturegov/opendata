@@ -73,6 +73,7 @@
     border-right: 0
 
 .super-tab
+  // Unselected
   &.unselected
     +tabs-border(top)
     +transition(all .1s ease-in-out)
@@ -95,7 +96,7 @@
       +media($medium-screen-up)
         display: block
 
-.super-tab
+  // Selected
   &.selected
     +tabs-border(top, false)
     border-top: 7px solid
@@ -119,7 +120,7 @@
       +media($large-screen-up)
         height: 80px
 
-.super-tab
+  // Disabled
   &.disabled
     opacity: .7
 
@@ -137,40 +138,42 @@
     +media($large-screen-up)
       background-color: $white
 
-.super-tab-trend
-  float: left
-  margin-bottom: $small-spacing
-
-  .stat-value
-    margin-bottom: 0
-  .stat-value, p
-    display: inline-block
-  p
-    float: none
-  i, data
+  // .super-tab-trend
+  &-trend
     float: left
-  i
-    margin-right: $small-spacing
-  data
-    margin-top: 10px
-    width: 200px
-    +media($medium-screen-up)
-      max-width: 90px
-    +media($medium-large-screen-up)
-      max-width: 170px
-    +media($large-screen-up)
-      max-width: 130px
+    margin-bottom: $small-spacing
 
-  +media($medium-screen-up)
-    .stat-value,
+    .stat-value
+      margin-bottom: 0
+    .stat-value, p
+      display: inline-block
     p
-      display: block
+      float: none
+    i, data
+      float: left
+    i
+      margin-right: $small-spacing
     data
-      margin-top: 0
+      margin-top: 10px
+      width: 200px
+      +media($medium-screen-up)
+        max-width: 90px
+      +media($medium-large-screen-up)
+        max-width: 170px
+      +media($large-screen-up)
+        max-width: 130px
 
-.super-tab-info
-  min-height: 11em
-  margin-bottom: 0
-  clear: both
-  +media($medium-screen-up)
-    display: none
+    +media($medium-screen-up)
+      .stat-value,
+      p
+        display: block
+      data
+        margin-top: 0
+
+  // .super-tab-info
+  &-info
+    min-height: 11em
+    margin-bottom: 0
+    clear: both
+    +media($medium-screen-up)
+      display: none

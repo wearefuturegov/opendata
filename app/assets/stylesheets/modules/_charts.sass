@@ -2,11 +2,70 @@
   width: 95%
   margin: $base-spacing auto
 
+  &-header
+    height: 80px
+    vertical-align: middle
+    line-height: 90px
+    padding: 0 $base-spacing
+
+    h2
+      line-height: normal
+      display: inline-block
+
 // C3 Axis line
-.c3-axis
-  .domain
-    stroke: $medium-gray
-    stroke-width: 2px
+.c3
+  // .c3-axis
+  &-axis
+    .domain
+      stroke: $medium-gray
+      stroke-width: 2px
+
+  // C3 Grid lines
+  // .c3-xgrid, .c3-ygrid
+  &-xgrid,
+  &-ygrid
+    stroke-dasharray: 0
+    stroke: $light-gray !important
+
+  // C3 Line
+  // .c3-line
+  &-line
+    stroke-width: 3px
+
+  // C3 Line dots
+  // .c3-circle
+  &-circle
+    r: 5
+
+  // .c3-circle-selected
+  &-circle-selected
+
+  // C3 Tooltip
+  // .c3-tooltip-container
+  &-tooltip-container
+    display: static !important
+
+  // .c3-tooltip
+  &-tooltip
+    width: 300px
+    opacity: 1
+    box-shadow: none
+    border-width: 2px
+    th
+      border-bottom: 0
+    tr
+      .name
+        span
+          border-radius: 100px
+      .value
+        font-family: $mono-font-family
+      &:first-of-type
+        background-color: $dark-gray
+    td
+      border-bottom: $base-border
+      border-left: $light-border
+      &:first-of-type
+        border-left: 0
 
 // C3 Axis ticks and number
 .tick
@@ -16,47 +75,6 @@
   text
     font-family: $mono-font-family
     fill: $dark-gray
-
-// C3 Grid lines
-.c3-xgrid,
-.c3-ygrid
-  stroke-dasharray: 0
-  stroke: $light-gray !important
-
-// C3 Line
-.c3-line
-  stroke-width: 3px
-
-// C3 Line dots
-.c3-circle
-  // Radius (apparently)
-  r: 5
-
-.c3-circle-selected
-// C3 Tooltip
-.c3-tooltip-container
-  display: static !important
-
-.c3-tooltip
-  width: 300px
-  opacity: 1
-  box-shadow: none
-  border-width: 2px
-  th
-    border-bottom: 0
-  tr
-    .name
-      span
-        border-radius: 100px
-    .value
-      font-family: $mono-font-family
-    &:first-of-type
-      background-color: $dark-gray
-  td
-    border-bottom: $base-border
-    border-left: $light-border
-    &:first-of-type
-      border-left: 0
 
 .legend
   list-style: none
@@ -101,14 +119,3 @@
     text-decoration: underline
     &:after
       opacity: 1
-
-.chart-header
-  height: 80px
-  vertical-align: middle
-  line-height: 90px
-  padding: 0 $base-spacing
-  h2
-    line-height: normal
-    display: inline-block
-
-

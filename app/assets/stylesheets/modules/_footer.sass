@@ -2,14 +2,14 @@
   background-color: $white
   border-bottom: $big-border
 
-#site-footer-wrapper
-  +outer-container
-  margin-top: $base-spacing
-  padding: $small-spacing
+  // .site-footer-wrapper
+  &-wrapper
+    +outer-container
+    margin-top: $base-spacing
+    padding: $small-spacing
 
-  +media($medium-screen-up)
-    padding: 0
-
+    +media($medium-screen-up)
+      padding: 0
 
 .footer-section
   +media($medium-screen-up)
