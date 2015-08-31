@@ -19,4 +19,5 @@
 #
 
 class CareHomeMetric < ActiveRecord::Base
+  belongs_to :care_home
 end

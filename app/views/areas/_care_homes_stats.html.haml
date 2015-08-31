@@ -1,0 +1,24 @@
+.care-homes-stats
+  .care-homes-stats__totals
+    = pluralize(home_stats.total_homes, "home")
+    = pluralize(home_stats.beds_count, "bed")
+    = pluralize(home_stats.vacancies_count, "vacancy")
+    %hr
+    .care-homes-stats__nursing
+      %strong Nursing
+      = pluralize(home_stats.nursing_homes_beds_count, "bed")
+      == #{home_stats.nursing_homes_vacancies} vacant
+      %strong Care
+      = pluralize(home_stats.care_homes_beds_count, "bed")
+      == #{home_stats.care_homes_vacancies} vacant
+  .care-homes-stats__dementia
+    %strong Dementia care
+    = pluralize(home_stats.homes_with_dementia_care_count, "home")
+    = pluralize(home_stats.homes_with_dementia_care_beds, "bed")
+    %strong Only dementia patients
+    = pluralize(home_stats.dementia_only_homes_count, "home")
+    = pluralize(home_stats.dementia_only_homes_beds, "bed")
+
+  .care-homes-stats__funded
+
+  .care-homes-stats__demand

@@ -26,4 +26,8 @@
 class CareHome < ActiveRecord::Base
   belongs_to :area
   has_many :metrics, class_name: "CareHomeMetric"
+
+  def self.in_area(area)
+    where(area: area)
+  end
 end
