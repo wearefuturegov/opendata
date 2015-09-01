@@ -10,7 +10,7 @@ namespace :import do
   # Past, current and predictad populations. Source:
   # http://www.ons.gov.uk/ons/publications/re-reference-tables.html?edition=tcm%3A77-335242
   # http://www.ons.gov.uk/ons/rel/snpp/sub-national-population-projections/2012-based-projections/rft-open-population-las.zip
-  # Sources manually downloaded and stored in lib/tasks/data/2012 SNPP Population [females|males].csv
+  # Sources manually downloaded and stored in db/data/2012 SNPP Population [females|males].csv
   task :populations => :environment do
     # Filter national data source by Devon districts
     devon_districts = Set.new(["Exeter", "East Devon", "Mid Devon", "North Devon", "Torridge", "West Devon", "South Hams", "Teignbridge", "Plymouth", "Torbay"])
@@ -24,7 +24,7 @@ namespace :import do
     }
 
     [["2012 SNPP Population males.csv", "male"], ["2012 SNPP Population females.csv", "female"]].each do |name, sex|
-      CSV.foreach("lib/tasks/data/%s" % name, headers: true) do |row|
+      CSV.foreach("db/data/%s" % name, headers: true) do |row|
         next unless devon_districts.include?(row["areaname".freeze])
         age = row["AgeGroup".freeze].to_i
         if age >= 18 && age <= 65
@@ -80,10 +80,12 @@ namespace :import do
   end
 
   task :care_homes do
+    raise ArgumentError, "Please specify CQC_SOURCE as path to data." if ENV["CQC_SOURCE"].nil?
+
     booleanize = ->(val) { return true if val == "Y"; return false if val == "N"; return val }
     devon = Area.where(name: "Devon").first
     ActiveRecord::Base.transaction do
-      CSV.foreach("lib/tasks/data/devon_mi_cqc_compliance-2015-02-01-clean.csv", headers: true, converters: booleanize) do |row|
+      CSV.foreach(ENV["CQC_SOURCE"], headers: true, converters: booleanize) do |row|
         CareHome.create!(area: devon,
                          cqc_location_uid: row.fetch("location_id"),
                          name: row.fetch("name"),
@@ -100,15 +102,18 @@ namespace :import do
   end
 
   task :care_home_metrics do
+    raise ArgumentError, "Please specify CQC_SOURCE as path to data." if ENV["CQC_SOURCE"].nil?
+    raise ArgumentError, "Please specify HOME_VACANCIES_SOURCE as path to data." if ENV["HOME_VACANCIES_SOURCE"].nil?
+
     devon = Area.where(name: "Devon").first
     ActiveRecord::Base.transaction do
-      CSV.foreach("lib/tasks/data/devon_mi_cqc_compliance-2015-02-01-clean.csv", headers: true) do |row|
+      CSV.foreach(ENV["CQC_SOURCE"], headers: true) do |row|
         home = CareHome.find_by!(cqc_location_uid: row.fetch("location_id"))
         home.metrics.create!(capacity: row.fetch("capacity"))
       end
     end
     ActiveRecord::Base.transaction do
-      CSV.foreach("lib/tasks/data/devon_home_vacancies-2015-03-17-clean.csv", headers: true) do |row|
+      CSV.foreach(ENV["HOME_VACANCIES_SOURCE"], headers: true) do |row|
         begin
           home = CareHome.find_by!(cqc_location_uid: row.fetch("cqc_location_id"))
           home.metrics.first.update_attributes!(residential_vacancies: row.fetch("no_of_residential_vacancies").to_i,
