@@ -89,3 +89,23 @@ FundVertical.create({
   council_spend: 15870000
 })
 ```
+
+### Care Homes
+
+The authoritative source for Care Home entries are the CQC records. These can be imported with rake:
+
+```
+bin/rake import:care_homes CQC_SOURCE=db/data/devon_mi_cqc_compliance-*.csv
+```
+
+Where `CQC_SOURCE` is the path to the CSV file to import, usually in the `db/data` directory.
+
+### Care Home Metrics
+
+After the Care Home import you can import specific statistics with:
+
+```
+bin/rake import:care_home_metrics COLLECTION_DATE=2015-09-01 CQC_SOURCE=db/data/devon_micqc_compliance-*.csv HOME_VACANCIES_SOURCE=db/data/devon_home_vacancies-2015-09-01.csv
+```
+
+Where `COLLECTION_DATE` is a chosen date that best represents when the data was collected. `CQC_SOURCE` is as above (for importing the "capacity" metric), and `HOME_VACANCIES_SOURCE` is a path to the Devon Home Vacancies data.
