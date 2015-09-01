@@ -116,22 +116,27 @@ namespace :import do
   task :care_home_metrics do
     raise ArgumentError, "Please specify CQC_SOURCE as path to data." if ENV["CQC_SOURCE"].nil?
     raise ArgumentError, "Please specify HOME_VACANCIES_SOURCE as path to data." if ENV["HOME_VACANCIES_SOURCE"].nil?
+    raise ArgumentError, "Please specify data COLLECTION_DATE." if ENV["COLLECTION_DATE"].nil?
 
     devon = Area.where(name: "Devon").first
+    collection_date = Date.parse(ENV["COLLECTION_DATE"])
+
     ActiveRecord::Base.transaction do
       CSV.foreach(ENV["CQC_SOURCE"], headers: true) do |row|
         home = CareHome.find_by!(cqc_location_uid: row.fetch("location_id"))
-        home.metrics.create!(capacity: row.fetch("capacity"))
+        home.metrics.create!(collection_date: collection_date, capacity: row.fetch("capacity"))
       end
     end
     ActiveRecord::Base.transaction do
       CSV.foreach(ENV["HOME_VACANCIES_SOURCE"], headers: true) do |row|
         begin
           home = CareHome.find_by!(cqc_location_uid: row.fetch("cqc_location_id"))
-          home.metrics.first.update_attributes!(residential_vacancies: row.fetch("no_of_residential_vacancies").to_i,
-                                                nursing_vacancies: row.fetch("no_of_nursing_vacancies").to_i,
-                                                short_stay_vacancies: row.fetch("no_of_short_stay_vacancies").to_i,
-                                                vacancy_update_date: row["date_vacancies_were_updated"].to_s.strip != "" ? Date.parse(row["date_vacancies_were_updated"]) : nil)
+          home.metrics
+            .find_by!(collection_date: collection_date)
+            .update_attributes!(residential_vacancies: row.fetch("no_of_residential_vacancies").to_i,
+                                nursing_vacancies: row.fetch("no_of_nursing_vacancies").to_i,
+                                short_stay_vacancies: row.fetch("no_of_short_stay_vacancies").to_i,
+                                vacancy_update_date: row["date_vacancies_were_updated"].to_s.strip != "" ? Date.parse(row["date_vacancies_were_updated"]) : nil)
         rescue ActiveRecord::RecordNotFound => e
           puts e.inspect, row.inspect
         rescue ArgumentError => e
