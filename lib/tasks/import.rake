@@ -86,17 +86,29 @@ namespace :import do
     devon = Area.where(name: "Devon").first
     ActiveRecord::Base.transaction do
       CSV.foreach(ENV["CQC_SOURCE"], headers: true, converters: booleanize) do |row|
-        CareHome.create!(area: devon,
-                         cqc_location_uid: row.fetch("location_id"),
-                         name: row.fetch("name"),
-                         town: row.fetch("town"),
-                         postcode: row.fetch("provider_postcode"),
-                         nursing_care: row.fetch("nursing_flag"),
-                         residential: row.fetch("residential_flag"),
-                         all_care: row.fetch("all_care_flag"),
-                         dementia_care: row.fetch("dementia"),
-                         learning_disabilities_care: row.fetch("learning_disabilities_or_autistic_spectrum_disorder"),
-                         mental_health_care: row.fetch("mental_health"))
+        data = {
+          area: devon,
+          cqc_location_uid: row.fetch("location_id"),
+          name: row.fetch("name"),
+          town: row.fetch("town"),
+          postcode: row.fetch("provider_postcode"),
+          nursing_care: row.fetch("nursing_flag"),
+          residential: row.fetch("residential_flag"),
+          all_care: row.fetch("all_care_flag"),
+          dementia_care: row.fetch("dementia"),
+          learning_disabilities_care: row.fetch("learning_disabilities_or_autistic_spectrum_disorder"),
+          mental_health_care: row.fetch("mental_health")
+        }
+
+        if (found = CareHome.find_by(cqc_location_uid: data[:cqc_location_uid]))
+          print "Found CareHome[#{found.id}] with location ID #{data[:cqc_location_uid]}, updating..."
+          found.update_attributes!(data)
+          puts "done."
+        else
+          print "Creating CareHome with location ID #{data[:cqc_location_uid]}..."
+          CareHome.create!(data)
+          puts "done."
+        end
       end
     end
   end
