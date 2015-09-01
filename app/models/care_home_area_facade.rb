@@ -8,7 +8,13 @@ class CareHomeAreaFacade
   end
 
   def metrics
-    CareHomeMetric.joins(:care_home).merge(homes)
+    CareHomeMetric
+      .joins(:care_home).merge(homes)
+      .where(collection_date: most_recent_collection_date)
+  end
+
+  def most_recent_collection_date
+    CareHomeMetric.maximum(:collection_date)
   end
 
   def total_homes
