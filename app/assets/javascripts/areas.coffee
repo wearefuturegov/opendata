@@ -44,30 +44,39 @@ ready = ->
   # Custom chart legend
   renderLegend = (data) ->
     # Append li
-    d3.select('.legend').selectAll('li').data(data["legend"])
-      .enter().append 'li'
-      .attr('class', 'key', 'data-id', (id) -> id)
-      .html((id) -> id
-    ).each((id) ->
-      li = d3.select(this)
-      # Add toggle bubble
-      span = li.insert "span"
-      # Style toggle bubble
-      span.attr("class", "toggle").style('background-color', chart.color(id))
-    ).on('mouseover', (id) ->
-      # Mouseover focus data
-      chart.focus id
-    ).on('mouseout', (id) ->
-      chart.revert
-    ).on 'click', (id) ->
-      # On click toggle class
-      $(this).toggleClass 'active'
-      chart.toggle id
+    p = d3
+      .select(".legend").selectAll("li")
+      .data(data["legend"], (d) -> d)
+
+    p
+      .enter()
+        .append "li"
+        .attr "class", "key"
+        .html (id) -> id
+        .each (id) ->
+          li = d3.select(this)
+          # Add toggle bubble
+          span = li.insert "span"
+          # Style toggle bubble
+          span.attr("class", "toggle").style("background-color", chart.color(id))
+
+      .on "mouseover", (id) ->
+        chart.focus id
+
+      .on "mouseout", (id) ->
+        chart.revert
+
+      .on "click", (id) ->
+        $(this).toggleClass "active"
+        chart.toggle id
+
+    p.exit().remove()
 
   updateChart = (data) =>
     updateChartHeader(data)
     chart.load
       columns: data["columns"]
+      unload: true
     renderLegend(data)
 
   # Update chart header on load
