@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   end
 
   root 'areas#index'
+  get 'blog' => 'pages#blog'
 
   get 'styleguide' => 'pages#styleguide'
 

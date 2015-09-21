@@ -67,14 +67,15 @@
     %h3 Legend
     %ul.legend
 
-= render partial: "care_homes_stats", locals: { home_stats: @home_stats }
-
 %h1.card-heading
   Public funding for care in
   = @area.name
 
 %section.transparent.container#card-wrapper
   -# Will be rendered via AJAX (areas.coffee)
+
+= render partial: "care_homes_stats", locals: { home_stats: @home_stats }
+
 
 -# %footer.hero-footer.subtle
   %h3 Get the data
