@@ -82,7 +82,7 @@ ready = ->
   # Update chart header on load
   updateChartHeader = (data) =>
     $('#chart-container .chart-header').attr('id', "tab_" + data["title"][1])
-    $('#chart-container .chart-header h2').text(data["title"][0]+" (% of change over time
+    $('#chart-container .chart-header h2').text(data["title"][0]+" (% change since 2012
 )")
 
   loadChart = (url, container) ->

@@ -14,43 +14,40 @@
 
 .row.care-homes-stats
 
-  .care-homes-stats__nursing
+  %section.card
+    %header
+      %h4 Nursing
+    .card-stat
+      %h5 Beds
+      %span.stat-value=home_stats.nursing_homes_beds_count
 
-    %section.card
-      %header
-        %h4 Nursing
-      .card-stat
-        %h5 Beds
-        %span.stat-value=home_stats.nursing_homes_beds_count
+  %section.card
+    %header
+      %h4 Care
+    .card-stat
+      %h5 Beds
+      %span.stat-value=home_stats.care_homes_beds_count
 
-    %section.card
-      %header
-        %h4 Care
-      .card-stat
-        %h5 Beds
-        %span.stat-value=home_stats.care_homes_beds_count
+  %section.card
+    %header
+      %h4 Dementia
+    .card-stat
+      %h5 Homes
+      %span.stat-value
+        =home_stats.homes_with_dementia_care_count
+    .card-stat
+      %h5 Beds
+      %span.stat-value
+        =home_stats.homes_with_dementia_care_beds
 
-  .care-homes-stats__dementia
-    %section.card
-      %header
-        %h4 Dementia
-      .card-stat
-        %h5 Homes
-        %span.stat-value
-          =home_stats.homes_with_dementia_care_count
-      .card-stat
-        %h5 Beds
-        %span.stat-value
-          =home_stats.homes_with_dementia_care_beds
-
-    %section.card
-      %header
-        %h4 Only dementia patients
-      .card-stat
-        %h5 Homes
-        %span.stat-value
-          =home_stats.dementia_only_homes_count
-      .card-stat
-        %h5 Beds
-        %span.stat-value
-          =home_stats.dementia_only_homes_beds
+  %section.card
+    %header
+      %h4 Only dementia patients
+    .card-stat
+      %h5 Homes
+      %span.stat-value
+        =home_stats.dementia_only_homes_count
+    .card-stat
+      %h5 Beds
+      %span.stat-value
+        =home_stats.dementia_only_homes_beds

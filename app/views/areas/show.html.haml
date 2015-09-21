@@ -1,3 +1,9 @@
+%header.hero-header.subtle
+  %h1 Inform your business decisions
+  %p See population trends and understand spending patterns of Devon County Council
+
+
+
 %header.aside-header
   %h1= "Population of " + @area.name
   %aside
@@ -73,6 +79,7 @@
 
 %section.transparent.container#card-wrapper
   -# Will be rendered via AJAX (areas.coffee)
+
 
 = render partial: "care_homes_stats", locals: { home_stats: @home_stats }
 
