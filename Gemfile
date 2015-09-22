@@ -18,6 +18,9 @@ gem 'devise'
 gem 'simple_form'
 gem 'cancancan'
 
+gem 'rails_12factor'
+gem 'puma'
+
 group :development do
   gem 'annotate'
   gem 'better_errors'
