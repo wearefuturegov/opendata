@@ -79,7 +79,7 @@ namespace :import do
     # this based on wireframes
   end
 
-  task :care_homes do
+  task :care_homes => :environment do
     raise ArgumentError, "Please specify CQC_SOURCE as path to data." if ENV["CQC_SOURCE"].nil?
 
     booleanize = ->(val) { return true if val == "Y"; return false if val == "N"; return val }
@@ -113,7 +113,7 @@ namespace :import do
     end
   end
 
-  task :care_home_metrics do
+  task :care_home_metrics => :environment do
     raise ArgumentError, "Please specify CQC_SOURCE as path to data." if ENV["CQC_SOURCE"].nil?
     raise ArgumentError, "Please specify HOME_VACANCIES_SOURCE as path to data." if ENV["HOME_VACANCIES_SOURCE"].nil?
     raise ArgumentError, "Please specify data COLLECTION_DATE." if ENV["COLLECTION_DATE"].nil?
