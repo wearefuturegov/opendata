@@ -1,4 +1,4 @@
 - if @fund_verticals.empty?
-  %h3.center.bright= I18n.t('vertical.missing')
+  %h3.center.bright.notice= I18n.t('vertical.missing')
 - else
   = render partial: "vertical", collection: @fund_verticals
