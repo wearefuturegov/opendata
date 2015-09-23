@@ -1,6 +1,6 @@
 %header.site-header
-  %nav.site-nav
-    %a.logo{ href: root_url }
-      %span.logo= t('app.name')
-      - if @area
-        = link_to('&#8592; Back to project overview'.html_safe, root_url)
+  - if @area
+    %nav.site-nav
+      / %a.logo{ href: root_url }
+      /   %span.logo= t('app.name')
+      = link_to('&#8592; Back to project overview'.html_safe, root_url)
